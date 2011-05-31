@@ -25,7 +25,7 @@ if not os.path.exists(trash):
 cwd = os.getcwd()
 for src in config_file_pairs:
   dest = '../.%s' % src
-  if os.path.exists(dest):
+  if os.path.lexists(dest): # like .exists() but returns true for broken symbolic links
     if os.path.islink(dest):
       print "- %s already links to -> %s" % (dest, os.path.realpath(dest))
       print "- rm %s" % (dest)
