@@ -24,17 +24,19 @@ if not os.path.exists(trash):
 
 cwd = os.getcwd()
 for src in config_file_pairs:
-  dest = '../%s' % src
+  dest = '../.%s' % src
   if os.path.exists(dest):
     if os.path.islink(dest):
-      print "%s already links to -> %s" % (dest, os.path.realpath(dest))
+      print "- %s already links to -> %s" % (dest, os.path.realpath(dest))
+      print "- rm %s" % (dest)
       os.remove(dest)
     else:
       trash_dest = os.path.join(trash, dest)
-      print "%s already exists. Moving to %s" % (dest, trash_dest)
+      print "- %s already exists." % (dest)
+      print "- mv %s %s" % (dest, trash_dest)
       os.rename(dest, trash_dest)
   print 'ln -s %s %s' % (src, dest)
-  os.link(src, dest)
+  os.symlink(src, dest)
 
 bashrc_local = '../.bashrc.local'
 if not os.path.exists(bashrc_local):
