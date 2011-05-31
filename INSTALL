@@ -35,6 +35,8 @@ for src in config_file_pairs:
       print "- %s already exists." % (dest)
       print "- mv %s %s" % (dest, trash_dest)
       os.rename(dest, trash_dest)
+  # the source path is evaluated relative to the link path.
+  src = 'tilde/%s' % src
   print 'ln -s %s %s' % (src, dest)
   os.symlink(src, dest)
 
