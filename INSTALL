@@ -31,7 +31,7 @@ for src in config_file_pairs:
       print "- rm %s" % (dest)
       os.remove(dest)
     else:
-      trash_dest = os.path.join(trash, dest)
+      trash_dest = os.path.join(trash, dest.replace('../.', ''))
       print "- %s already exists." % (dest)
       print "- mv %s %s" % (dest, trash_dest)
       os.rename(dest, trash_dest)
