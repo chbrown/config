@@ -33,8 +33,10 @@ for src in config_file_pairs:
       trash_dest = os.path.join(trash, dest)
       print "%s already exists. Moving to %s" % (dest, trash_dest)
       os.rename(dest, trash_dest)
+  print 'ln -s %s %s' % (src, dest)
   os.link(src, dest)
 
 bashrc_local = '../.bashrc.local'
 if not os.path.exists(bashrc_local):
+  print 'cp %s %s' % ('bashrc.local', bashrc_local)
   shutil.copyfile('bashrc.local', bashrc_local)
