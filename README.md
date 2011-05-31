@@ -12,13 +12,13 @@ Then stick whatever custom settings you like in your existing or newly created `
 These settings are intended to be agnostic between Mac OS X and Arch Linux.
 
 At the time of writing, here are the files/directories that are symlinked:
-  * .ackrc
-  * .bash_logout
-  * .bash_profile
-  * .bashrc
-  * .gemrc
-  * .gitconfig
-  * .gitignore_global
-  * .hgrc
-  * .vim/
-  * .vimrc
+* .ackrc
+* .bash_logout
+* .bash_profile
+* .bashrc
+* .gemrc
+* .gitconfig
+* .gitignore_global
+* .hgrc
+* .vim/
+* .vimrc
