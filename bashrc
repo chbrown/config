@@ -53,3 +53,8 @@ function tx {
 function ptx {
     pdflatex -interaction=scrollmode $1 && open -a TeXShop.app $1.pdf;
 }
+function copy_id_rsa {
+  # like ssh-copy-id
+  # eg. `copy_id_rsa chbrown@linode` or `copy_id_rsa root@66.228.38.64`
+  cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir -p ~/.ssh; cat - >> ~/.ssh/authorized_keys2"
+}
