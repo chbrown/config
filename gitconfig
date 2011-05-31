@@ -1,0 +1,17 @@
+[user]
+    name = Christopher Brown
+    email = io@henrian.com
+
+[color]
+    diff        = auto
+    status      = auto
+    branch      = auto
+    interactive = auto
+
+[alias]
+    ci = commit
+    di = diff --color-words
+    st = status
+
+[core]
+    pager = cat

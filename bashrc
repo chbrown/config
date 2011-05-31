@@ -1,0 +1,55 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+source ~/.bashrc.local
+
+# history control
+export HISTCONTROL=ignoredups:ignorespace
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
+shopt -s histappend
+shopt -s autocd
+shopt -s checkwinsize
+
+export PS1="[\u@$MACHINE \w]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/
+export EDITOR=vim
+[ -f ~/bin ] && export PATH=~/bin:$PATH
+
+alias sl='ls'
+alias m='mate'
+alias o='open'
+
+if [ -f ~/.local/bin/bashmarks.sh ]; then
+  source ~/.local/bin/bashmarks.sh
+fi
+
+# open last pwd if there is one:
+if [ -f /tmp/pwd ]; then
+  echo Navigating to last directory: `cat /tmp/pwd`
+  cd `cat /tmp/pwd`
+fi
+
+function wgetar {
+    EXT='gz'
+    TAR_TYPE='z'
+    if [[ $1 == *bz2 ]]
+    then
+        EXT='bz2';
+        TAR_TYPE='j';
+    fi
+    wget $1 -O $2.tar.$EXT
+    mkdir tmp
+    tar -C tmp -x -$TAR_TYPE -f $2.tar.$EXT
+    rm $2.tar.$EXT
+    mv tmp/* ./$2
+    rmdir tmp
+}
+function tx {
+    latex -interaction=scrollmode $1 && dvipdf $1 && open -a TeXShop.app $1.pdf;
+}
+function ptx {
+    pdflatex -interaction=scrollmode $1 && open -a TeXShop.app $1.pdf;
+}
