@@ -27,9 +27,12 @@ if [ -f ~/.local/bin/bashmarks.sh ]; then
 fi
 
 # open last pwd if there is one:
-if [ -f /tmp/pwd ]; then
+if [ -f /tmp/pwd ] && [ -z $WD ]; then
   echo Navigating to last directory: `cat /tmp/pwd`
   cd `cat /tmp/pwd`
+fi
+if [ -n "$WD" ]; then
+  cd $WD
 fi
 
 function wgetar {
