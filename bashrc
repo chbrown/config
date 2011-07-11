@@ -61,3 +61,7 @@ function copy_id_rsa {
   # eg. `copy_id_rsa chbrown@linode` or `copy_id_rsa root@66.228.38.64`
   cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir -p ~/.ssh; cat - >> ~/.ssh/authorized_keys2"
 }
+function cdp {
+  mkdir -p $1
+  cd $1
+}
