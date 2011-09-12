@@ -13,6 +13,7 @@ config_file_pairs = [
   'gemrc',
   'gitconfig',
   'gitignore_global',
+  'inputrc',
   'hgrc',
   'vim',
   'vimrc'

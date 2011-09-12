@@ -19,8 +19,13 @@ export EDITOR=vim
 [ -f ~/bin ] && export PATH=~/bin:$PATH
 
 alias sl='ls'
+alias lsa='ls -la'
 alias m='mate'
+alias st='open -a "Sublime Text 2.app"'
 alias o='open'
+alias py='python'
+alias ipy='ipython -i'
+alias psgrep='ps aux | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
 
 if [ -f ~/.local/bin/bashmarks.sh ]; then
   source ~/.local/bin/bashmarks.sh
