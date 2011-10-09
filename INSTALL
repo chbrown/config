@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-import stat
+# import stat
 import shutil
 
 # Run this in its original directory!
@@ -19,9 +19,27 @@ config_file_pairs = [
   'vimrc'
 ]
 
-trash = '/tmp/tilde-originals'
-if not os.path.exists(trash):
-  os.makedirs(trash)
+trash = ''
+def init_trashdir(dirpath):
+  trash = dirpath
+  if not os.path.exists(trash):
+    os.makedirs(trash)
+init_trashdir('/tmp/tilde-originals')
+
+def trash_file(filepath, rm_on_failure=False):
+  trash_dest = os.path.join(trash, filepath.replace('../.', ''))
+  try:
+    print "- mv %s %s" % (filepath, trash_dest)
+    os.rename(filepath, trash_dest)
+  except Exception, e:
+    print e
+    init_trashdir('../tmp')
+    if rm_on_failure:
+      print "- rm %s" % filepath
+      os.remove(filepath)
+    else:
+      trash_file(filepath, True)
+    
 
 cwd = os.getcwd()
 for src in config_file_pairs:
@@ -32,10 +50,9 @@ for src in config_file_pairs:
       print "- rm %s" % (dest)
       os.remove(dest)
     else:
-      trash_dest = os.path.join(trash, dest.replace('../.', ''))
       print "- %s already exists." % (dest)
-      print "- mv %s %s" % (dest, trash_dest)
-      os.rename(dest, trash_dest)
+      trash_file(dest)
+      
   # the source path is evaluated relative to the link path.
   src = 'tilde/%s' % src
   print 'ln -s %s %s' % (src, dest)
