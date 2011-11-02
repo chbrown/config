@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import os
-# import stat
 import shutil
 
 # Run this in its original directory!
@@ -15,16 +14,15 @@ config_file_pairs = [
   'gitignore_global',
   'inputrc',
   'hgrc',
+  'screenrc',
   'vim',
   'vimrc'
 ]
 
-trash = ''
-def init_trashdir(dirpath):
-  trash = dirpath
-  if not os.path.exists(trash):
-    os.makedirs(trash)
-init_trashdir('/tmp/tilde-originals')
+def ensure_dirpath(dirpath):
+  if not os.path.exists(dirpath):
+    os.makedirs(dirpath)
+trash = ensure_dirpath('/tmp/tilde-originals')
 
 def trash_file(filepath, rm_on_failure=False):
   trash_dest = os.path.join(trash, filepath.replace('../.', ''))
@@ -33,11 +31,11 @@ def trash_file(filepath, rm_on_failure=False):
     os.rename(filepath, trash_dest)
   except Exception, e:
     print e
-    init_trashdir('../tmp')
     if rm_on_failure:
       print "- rm %s" % filepath
       os.remove(filepath)
     else:
+      trash = ensure_dirpath('../tmp')
       trash_file(filepath, True)
     
 

@@ -1,6 +1,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+export PATH=/usr/texbin:/usr/local/sbin:/usr/local/bin:$PATH
 source ~/.bashrc.local
 
 # history control
@@ -12,20 +13,23 @@ shopt -s autocd
 shopt -s checkwinsize
 
 export PS1="[\u@$MACHINE \w]\$ "
+#export PS1='\h:\W \u\$ ' # original Mac OS X PS1
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/
 export EDITOR=vim
-[ -f ~/bin ] && export PATH=~/bin:$PATH
+[ -d ~/bin ] && export PATH=~/bin:$PATH
 
 alias sl='ls'
 alias lsa='ls -la'
+alias sla=lsa
 alias m='mate'
 alias st='open -a "Sublime Text 2.app"'
 alias o='open'
 alias py='python'
 alias ipy='ipython -i'
-alias psgrep='ps aux | grep $(echo $1 | sed "s/^\(.\)/[\1]/g")'
+alias lower="tr '[A-Z]' '[a-z]'"
+alias upper="tr '[a-z]' '[A-Z]'"
 
 if [ -f ~/.local/bin/bashmarks.sh ]; then
   source ~/.local/bin/bashmarks.sh
@@ -56,10 +60,10 @@ function wgetar {
     rmdir tmp
 }
 function tx {
-    latex -interaction=scrollmode $1 && dvipdf $1 && open -a TeXShop.app $1.pdf;
+    latex -interaction=scrollmode $1 && dvipdf $1 && open -a TeXShop.app $1.pdf
 }
 function ptx {
-    pdflatex -interaction=scrollmode $1 && open -a TeXShop.app $1.pdf;
+    pdflatex -interaction=scrollmode $1 && open -a TeXShop.app $1.pdf
 }
 function copy_id_rsa {
   # like ssh-copy-id
@@ -70,3 +74,7 @@ function cdp {
   mkdir -p $1
   cd $1
 }
+function lsd {
+  lsa $@ | grep ^d
+}
+

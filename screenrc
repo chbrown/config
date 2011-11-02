@@ -1,0 +1,10 @@
+# From: http://serverfault.com/questions/165508/screen-autossh-question-easiest-way-to-transparently-integrate-screen-into-my
+
+# A nice status line at the bottom
+hardstatus alwayslastline "%-w%{= BW}%50>%n %t%{-}%+w %<%=|%h"
+
+# special xterm hardstatus: use the window title.
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+# Do not use xterm's alternative window buffer, it breaks scrollback
+termcapinfo xterm*|xs ti=\E7\E[?47l
