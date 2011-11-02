@@ -22,7 +22,13 @@ config_file_pairs = [
 def ensure_dirpath(dirpath):
   if not os.path.exists(dirpath):
     os.makedirs(dirpath)
-trash = ensure_dirpath('/tmp/tilde-originals')
+  return dirpath
+
+try:
+  trash = ensure_dirpath('/tmp/tilde-originals')
+  open(os.path.join(trash, 'dummy')).close() 
+except Exception, e:
+  trash = ensure_dirpath('../tmp')
 
 def trash_file(filepath, rm_on_failure=False):
   trash_dest = os.path.join(trash, filepath.replace('../.', ''))
@@ -34,10 +40,6 @@ def trash_file(filepath, rm_on_failure=False):
     if rm_on_failure:
       print "- rm %s" % filepath
       os.remove(filepath)
-    else:
-      trash = ensure_dirpath('../tmp')
-      trash_file(filepath, True)
-    
 
 cwd = os.getcwd()
 for src in config_file_pairs:
