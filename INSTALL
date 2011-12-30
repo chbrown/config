@@ -28,6 +28,7 @@ try:
   trash = ensure_dirpath('/tmp/tilde-originals')
   open(os.path.join(trash, 'dummy')).close() 
 except Exception, e:
+  print e
   trash = ensure_dirpath('../tmp')
 
 def trash_file(filepath, rm_on_failure=False):

@@ -30,9 +30,13 @@ alias py='python'
 alias ipy='ipython -i'
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
+alias scn='screen'
 
 if [ -f ~/.local/bin/bashmarks.sh ]; then
   source ~/.local/bin/bashmarks.sh
+fi
+if [ -f /usr/local/etc/autojump.bash ]; then
+  . /usr/local/etc/autojump.bash
 fi
 
 # open last pwd if there is one:
@@ -63,7 +67,16 @@ function tx {
     latex -interaction=scrollmode $1 && dvipdf $1 && open -a TeXShop.app $1.pdf
 }
 function ptx {
-    pdflatex -interaction=scrollmode $1 && open -a TeXShop.app $1.pdf
+  #echo "Num args: $#" 
+    if [ $# -lt 1 ]
+    then
+      # no file specified
+      TEXFILES=$(ls *.tex)
+    else
+      TEXFILES=($1)
+    fi
+    echo "Rendering ${TEXFILES[0]}"
+    pdflatex -interaction=scrollmode ${TEXFILES[0]} && open -a TeXShop.app ${TEXFILES[0]/\.tex/}.pdf
 }
 function copy_id_rsa {
   # like ssh-copy-id
@@ -74,7 +87,13 @@ function cdp {
   mkdir -p $1
   cd $1
 }
+function cdr {
+  cd **/*$1*
+}
 function lsd {
   lsa $@ | grep ^d
+}
+function redis-del { 
+  redis-cli --raw keys $1 | xargs redis-cli del
 }
 

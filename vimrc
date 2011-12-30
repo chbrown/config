@@ -37,3 +37,7 @@ endif
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
