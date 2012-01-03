@@ -32,9 +32,6 @@ alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias scn='screen'
 
-if [ -f ~/.local/bin/bashmarks.sh ]; then
-  source ~/.local/bin/bashmarks.sh
-fi
 if [ -f /usr/local/etc/autojump.bash ]; then
   . /usr/local/etc/autojump.bash
 fi
@@ -95,5 +92,9 @@ function lsd {
 }
 function redis-del { 
   redis-cli --raw keys $1 | xargs redis-cli del
+}
+
+function tnls {
+  ps aux | grep ssh | grep -e -L | grep : | grep -v grep
 }
 
