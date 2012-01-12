@@ -16,7 +16,7 @@ export PS1="[\u@$MACHINE \w]\$ "
 #export PS1='\h:\W \u\$ ' # original Mac OS X PS1
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 export EDITOR=vim
 [ -d ~/bin ] && export PATH=~/bin:$PATH
 
@@ -32,8 +32,8 @@ alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias scn='screen'
 
-if [ -f /usr/local/etc/autojump.bash ]; then
-  . /usr/local/etc/autojump.bash
+if [ -f /etc/profile.d/autojump.bash ]; then
+  . /etc/profile.d/autojump.bash
 fi
 
 # open last pwd if there is one:
