@@ -1,8 +1,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-export PATH=/usr/texbin:/usr/local/sbin:/usr/local/bin:$PATH
-source ~/.bashrc.local
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # history control
 export HISTCONTROL=ignoredups:ignorespace
@@ -12,8 +11,6 @@ shopt -s histappend
 shopt -s autocd
 shopt -s checkwinsize
 
-export PS1="[\u@$MACHINE \w]\$ "
-#export PS1='\h:\W \u\$ ' # original Mac OS X PS1
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
@@ -36,14 +33,6 @@ if [ -f /etc/profile.d/autojump.bash ]; then
   . /etc/profile.d/autojump.bash
 fi
 
-# open last pwd if there is one:
-if [ -f /tmp/pwd ] && [ -z $WD ]; then
-  echo Navigating to last directory: `cat /tmp/pwd`
-  cd `cat /tmp/pwd`
-fi
-if [ -n "$WD" ]; then
-  cd $WD
-fi
 
 function wgetar {
     EXT='gz'
@@ -97,4 +86,18 @@ function redis-del {
 function tnls {
   ps aux | grep ssh | grep -e -L | grep : | grep -v grep
 }
+
+source ~/.bashrc.local
+
+export PS1="[\u@$MACHINE \w]\$ "
+#export PS1='\h:\W \u\$ ' # original Mac OS X PS1
+
+# open last pwd if there is one:
+if [ -f /tmp/pwd ] && [ -z $WD ]; then
+  echo Navigating to last directory: `cat /tmp/pwd`
+  cd `cat /tmp/pwd`
+fi
+if [ -n "$WD" ]; then
+  cd $WD
+fi
 

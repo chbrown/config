@@ -41,3 +41,4 @@ set showmode
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 
+cmap w!! w !sudo tee % >/dev/null
