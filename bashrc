@@ -2,6 +2,7 @@
 [ -z "$PS1" ] && return
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 
 # history control
 export HISTCONTROL=ignoredups:ignorespace
@@ -13,26 +14,17 @@ shopt -s checkwinsize
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 export EDITOR=vim
 [ -d ~/bin ] && export PATH=~/bin:$PATH
 
-alias sl='ls'
 alias lsa='ls -la'
-alias sla=lsa
-alias m='mate'
-alias st='open -a "Sublime Text 2.app"'
-alias o='open'
-alias py='python'
-alias ipy='ipython -i'
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
-alias scn='screen'
+alias py='python'
 
 if [ -f /etc/profile.d/autojump.bash ]; then
   . /etc/profile.d/autojump.bash
 fi
-
 
 function wgetar {
     EXT='gz'
@@ -50,19 +42,27 @@ function wgetar {
     rmdir tmp
 }
 function tx {
-    latex -interaction=scrollmode $1 && dvipdf $1 && open -a TeXShop.app $1.pdf
+  if [ $# -lt 1 ]
+  then
+    # no file specified
+    TEXFILES=$(ls *.tex)
+  else
+    TEXFILES=($1)
+  fi
+  TEXFILE=${TEXFILES[0]/\.tex/}
+  echo "Rendering $TEXFILE"
+  latex -interaction=scrollmode $TEXFILE && dvipdf $TEXFILE && open -a TeXShop.app $TEXFILE.pdf
 }
 function ptx {
-  #echo "Num args: $#" 
-    if [ $# -lt 1 ]
-    then
-      # no file specified
-      TEXFILES=$(ls *.tex)
-    else
-      TEXFILES=($1)
-    fi
-    echo "Rendering ${TEXFILES[0]}"
-    pdflatex -interaction=scrollmode ${TEXFILES[0]} && open -a TeXShop.app ${TEXFILES[0]/\.tex/}.pdf
+  if [ $# -lt 1 ]
+  then
+    # no file specified
+    TEXFILES=$(ls *.tex)
+  else
+    TEXFILES=($1)
+  fi
+  echo "Rendering ${TEXFILES[0]}"
+  pdflatex -interaction=scrollmode ${TEXFILES[0]} && open -a TeXShop.app ${TEXFILES[0]/\.tex/}.pdf
 }
 function copy_id_rsa {
   # like ssh-copy-id
@@ -82,7 +82,6 @@ function lsd {
 function redis-del { 
   redis-cli --raw keys $1 | xargs redis-cli del
 }
-
 function tnls {
   ps aux | grep ssh | grep -e -L | grep : | grep -v grep
 }
