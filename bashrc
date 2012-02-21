@@ -88,7 +88,9 @@ function tnls {
 
 source ~/.bashrc.local
 
-export PS1="[\u@$MACHINE \w]\$ "
+#export PS1="[\u@$MACHINE \w]\$ "
+# above: normal prompt. below: green prompt.
+export PS1="\[\e[1;32m\][\u@$MACHINE \w]\$\[\e[0m\] "
 #export PS1='\h:\W \u\$ ' # original Mac OS X PS1
 
 # open last pwd if there is one:
