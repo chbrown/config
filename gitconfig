@@ -15,3 +15,7 @@
 
 [core]
     pager = cat
+
+[push]
+    default = upstream
+
