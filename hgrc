@@ -1,8 +1,0 @@
-[ui]
-username = Christopher Brown <io@henrian.com>
-
-[extensions]
-hgk =
-hgext.mq =
-fetch = 
-rebase =

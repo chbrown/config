@@ -25,7 +25,7 @@ def ensure_dirpath(dirpath):
   return dirpath
 
 try:
-  trash = ensure_dirpath('/tmp/tilde-originals')
+  trash = ensure_dirpath('/tmp/dotfiles-originals')
   open(os.path.join(trash, 'dummy')).close() 
 except Exception, e:
   print e
@@ -55,7 +55,7 @@ for src in config_file_pairs:
       trash_file(dest)
       
   # the source path is evaluated relative to the link path.
-  src = 'tilde/%s' % src
+  src = 'dotfiles/%s' % src
   print 'ln -s %s %s' % (src, dest)
   os.symlink(src, dest)
 

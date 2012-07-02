@@ -15,6 +15,7 @@
 
 [core]
     pager = cat
+    excludesfile = ./.gitignore_global
 
 [push]
     default = upstream
