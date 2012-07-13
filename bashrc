@@ -24,11 +24,12 @@ alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias py='python'
 
-if [ -f /etc/profile.d/autojump.bash ]; then
+if [ -f /etc/profile.d/autojump.bash ]
+then
   . /etc/profile.d/autojump.bash
-fi
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
+elif [ -f /usr/local/etc/autojump ]
+then
+  . /usr/local/etc/autojump
 fi
 
 function wgetar {
