@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 
 # history control
 export HISTCONTROL=ignoredups:ignorespace
@@ -13,6 +13,7 @@ shopt -s checkwinsize
 if [[ `$SHELL --version` =~ 'version 4' ]]; then
   shopt -s autocd
 fi
+stty -ixon
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -85,9 +86,9 @@ function cdr {
 function lsd {
   lsa $@ | grep ^d
 }
-function redis-del { 
-  redis-cli --raw keys $1 | xargs redis-cli del
-}
+#function redis-del { 
+#  redis-cli --raw keys $1 | xargs redis-cli del
+#}
 function tnls {
   ps aux | grep ssh | grep -e -L | grep : | grep -v grep
 }
