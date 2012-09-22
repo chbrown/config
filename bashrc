@@ -92,15 +92,6 @@ function lsd {
 function tnls {
   ps aux | grep ssh | grep -e -L | grep : | grep -v grep
 }
-function crop {
-  pdfcrop --margins 2 --clip $1;
-}
-function pdfcropall {
-  for f in `ls -1 $1`
-  do
-    crop $f
-  done
-}
 function gsclean {
   gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=${1/.pdf/-gs.pdf} -f $1
 }
