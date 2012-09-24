@@ -11,3 +11,9 @@ termcapinfo xterm*|xs ti=\E7\E[?47l
 
 # Use Ctrl-q as the escape key, instead of Ctrl-a
 escape ^Qq
+
+# Start at window 1, because it's all the way over on the keyboard
+bind c screen 1
+bind ^c screen 1
+bind 0 select 10                                                            
+screen 1
