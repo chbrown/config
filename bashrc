@@ -23,14 +23,18 @@ export EDITOR=vim
 alias lsa='ls -la'
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
+alias token="tr -s [:space:] '\n'"
 alias py='python'
 
-if [ -f /etc/profile.d/autojump.bash ]
-then
-  . /etc/profile.d/autojump.bash
-elif [ -f /usr/local/etc/autojump ]
-then
-  . /usr/local/etc/autojump
+j_arch=/etc/profile.d/autojump.bash
+j_mac=/usr/local/etc/autojump
+j_debian=/usr/share/autojump/autojump.bash
+if [ -f $j_arch ]; then
+  . $j_arch
+elif [ -f $j_mac ]; then
+  . $j_mac
+elif [ -f $j_debian ]; then
+  . $j_debian
 fi
 
 function wgetar {
@@ -86,7 +90,7 @@ function cdr {
 function lsd {
   lsa $@ | grep ^d
 }
-#function redis-del { 
+#function redis-del {
 #  redis-cli --raw keys $1 | xargs redis-cli del
 #}
 function tnls {
