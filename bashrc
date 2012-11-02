@@ -27,7 +27,7 @@ alias token="tr -s [:space:] '\n'"
 alias py='python'
 
 j_arch=/etc/profile.d/autojump.bash
-j_mac=/usr/local/etc/autojump
+j_mac=/usr/local/etc/autojump.sh
 j_debian=/usr/share/autojump/autojump.bash
 if [ -f $j_arch ]; then
   . $j_arch
