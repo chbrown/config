@@ -21,6 +21,7 @@ export EDITOR=vim
 [ -d ~/bin ] && export PATH=~/bin:$PATH
 
 alias lsa='ls -la'
+alias lsl='ls -l'
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias token="tr -s [:space:] '\n'"
