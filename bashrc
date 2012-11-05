@@ -2,15 +2,18 @@
 [ -z "$PS1" ] && return
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
 
 # history control
 export HISTCONTROL=ignoredups:ignorespace
-export HISTSIZE=1000000
-export HISTFILESIZE=1000000000
+export HISTSIZE=100000000
+export HISTFILESIZE=100000000000
 shopt -s histappend
-shopt -s autocd
 shopt -s checkwinsize
+if [[ `$SHELL --version` =~ 'version 4' ]]; then
+  shopt -s autocd
+fi
+stty -ixon
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -18,12 +21,21 @@ export EDITOR=vim
 [ -d ~/bin ] && export PATH=~/bin:$PATH
 
 alias lsa='ls -la'
+alias lsl='ls -l'
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
+alias token="tr -s [:space:] '\n'"
 alias py='python'
 
-if [ -f /etc/profile.d/autojump.bash ]; then
-  . /etc/profile.d/autojump.bash
+j_arch=/etc/profile.d/autojump.bash
+j_mac=/usr/local/etc/autojump.sh
+j_debian=/usr/share/autojump/autojump.bash
+if [ -f $j_arch ]; then
+  . $j_arch
+elif [ -f $j_mac ]; then
+  . $j_mac
+elif [ -f $j_debian ]; then
+  . $j_debian
 fi
 
 function wgetar {
@@ -79,20 +91,11 @@ function cdr {
 function lsd {
   lsa $@ | grep ^d
 }
-function redis-del { 
-  redis-cli --raw keys $1 | xargs redis-cli del
-}
+#function redis-del {
+#  redis-cli --raw keys $1 | xargs redis-cli del
+#}
 function tnls {
   ps aux | grep ssh | grep -e -L | grep : | grep -v grep
-}
-function crop {
-  pdfcrop --margins 2 --clip $1;
-}
-function pdfcropall {
-  for f in `ls -1 $1`
-  do
-    crop $f
-  done
 }
 function gsclean {
   gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=${1/.pdf/-gs.pdf} -f $1

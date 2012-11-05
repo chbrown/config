@@ -5,61 +5,61 @@ import shutil
 # Run this in its original directory!
 
 config_file_pairs = [
-  'ackrc',
-  'bash_logout',
-  'bash_profile',
-  'bashrc',
-  'gemrc',
-  'gitconfig',
-  'gitignore_global',
-  'inputrc',
-  'hgrc',
-  'screenrc',
-  'vim',
-  'vimrc'
+    'ackrc',
+    'bash_logout',
+    'bash_profile',
+    'bashrc',
+    'gemrc',
+    'gitconfig',
+    'gitignore_global',
+    'inputrc',
+    'screenrc',
+    'vim',
+    'vimrc'
 ]
 
 def ensure_dirpath(dirpath):
-  if not os.path.exists(dirpath):
-    os.makedirs(dirpath)
-  return dirpath
+    if not os.path.exists(dirpath):
+        os.makedirs(dirpath)
+    return dirpath
 
 try:
-  trash = ensure_dirpath('/tmp/dotfiles-originals')
-  open(os.path.join(trash, 'dummy')).close() 
+    trash = ensure_dirpath('/tmp/dotfiles-originals')
+    open(os.path.join(trash, 'dummy')).close()
 except Exception, e:
-  print e
-  trash = ensure_dirpath('../tmp')
+    print e
+    trash = ensure_dirpath('../tmp')
 
 def trash_file(filepath, rm_on_failure=False):
-  trash_dest = os.path.join(trash, filepath.replace('../.', ''))
-  try:
-    print "- mv %s %s" % (filepath, trash_dest)
-    os.rename(filepath, trash_dest)
-  except Exception, e:
-    print e
-    if rm_on_failure:
-      print "- rm %s" % filepath
-      os.remove(filepath)
+    trash_dest = os.path.join(trash, filepath.replace('../.', ''))
+    try:
+        print "- mv %s %s" % (filepath, trash_dest)
+        os.rename(filepath, trash_dest)
+    except Exception, e:
+        print e
+        if rm_on_failure:
+            print "- rm %s" % filepath
+            os.remove(filepath)
 
-cwd = os.getcwd()
-for src in config_file_pairs:
-  dest = '../.%s' % src
-  if os.path.lexists(dest): # like .exists() but returns true for broken symbolic links
-    if os.path.islink(dest):
-      print "- %s already links to -> %s" % (dest, os.path.realpath(dest))
-      print "- rm %s" % (dest)
-      os.remove(dest)
-    else:
-      print "- %s already exists." % (dest)
-      trash_file(dest)
-      
-  # the source path is evaluated relative to the link path.
-  src = 'dotfiles/%s' % src
-  print 'ln -s %s %s' % (src, dest)
-  os.symlink(src, dest)
+for src in os.listdir('.'):
+    if src[0] != '.' and src not in ['bashrc.local', 'INSTALL', 'README.md']:
+        dest = '../.%s' % src
+        # lexists is like .exists() but returns true for broken symbolic links
+        if os.path.lexists(dest):
+            if os.path.islink(dest):
+                print "- %s links to -> %s" % (dest, os.path.realpath(dest))
+                print "- rm %s" % (dest)
+                os.remove(dest)
+            else:
+                print "- %s already exists." % (dest)
+                trash_file(dest)
+
+        # the source path is evaluated relative to the link path.
+        src = 'dotfiles/%s' % src
+        print 'ln -s %s %s' % (src, dest)
+        os.symlink(src, dest)
 
 bashrc_local = '../.bashrc.local'
 if not os.path.exists(bashrc_local):
-  print 'cp %s %s' % ('bashrc.local', bashrc_local)
-  shutil.copyfile('bashrc.local', bashrc_local)
+    print 'cp %s %s' % ('bashrc.local', bashrc_local)
+    shutil.copyfile('bashrc.local', bashrc_local)
