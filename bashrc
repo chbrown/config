@@ -26,6 +26,8 @@ alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias token="tr -s [:space:] '\n'"
 alias py='python'
+alias hdfs='hadoop fs'
+alias iso='date +%Y%m%d'
 
 j_arch=/etc/profile.d/autojump.bash
 j_mac=/usr/local/etc/autojump.sh
