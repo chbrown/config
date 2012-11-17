@@ -4,20 +4,6 @@ import shutil
 
 # Run this in its original directory!
 
-config_file_pairs = [
-    'ackrc',
-    'bash_logout',
-    'bash_profile',
-    'bashrc',
-    'gemrc',
-    'gitconfig',
-    'gitignore_global',
-    'inputrc',
-    'screenrc',
-    'vim',
-    'vimrc'
-]
-
 def ensure_dirpath(dirpath):
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
