@@ -1,0 +1,98 @@
+if (!exists("rollmean")) library("zoo")
+library("ggplot2")
+
+l = length
+enumerate = function(countable) { 1:l(countable) }
+normalizep = function(vec) { vec / sum(vec) }
+rseq = function(original, fractions) {
+  r = range(original)
+  seq(r[1], r[2], (r[2] - r[1]) / (fractions - 1))
+}
+mat.max = function(mat) {
+  i = which.max(mat)
+  c(((i - 1) %% nrow(mat)) + 1, ceiling(i / nrow(mat)))
+}
+mean.na.rm = function(vec) { mean(vec, na.rm=TRUE) }
+# create a List from repeating a Function
+# freplist = function(f, times) {
+#   lapply(as.list(1:times), f)
+# }
+
+sliding.matrix = function(vec, window_size, fn=NA) {
+  mat = matrix(nrow=l(vec) - window_size, ncol=window_size)
+  for (i in 1:(l(vec) - window_size)) {
+    mat[i,] = vec[i:(i + window_size - 1)]
+  }
+  if (is.function(fn)) { # returns a vector
+    return(apply(mat, 1, fn))
+  }
+  else {
+    return(mat)
+  }
+}
+sliding.list = function(vec, window_size, fn=NA) {
+  group_count = (l(vec) - window_size) + 1
+  groups = list(1:group_count)
+  for (i in 1:group_count) {
+    groups[[i]] = vec[i:(i + window_size - 1)]
+  }
+  return(groups)
+}
+sliding = sliding.list
+
+partition = function(vec, window_size, default=NA) {
+  # returns a matrix!
+  mat = matrix(default, ncol=window_size, nrow=ceiling(l(vec) / window_size))
+  for (i in 1:nrow(mat)) {
+    begin = (window_size*(i-1) + 1)
+    mat[i,] = vec[begin:(begin + window_size - 1)]
+  }
+  return(mat)
+}
+jagged.list = function(vec, window_size, mod=0) {
+  num = 1:ceiling((l(vec) - mod) / window_size)
+  if (mod > 0) {
+    parts = as.list(num + 1)
+    parts[[1]] = vec[1:mod]
+    offset = 1
+  }
+  else {
+    parts = as.list(num)
+    offset = 0
+  }
+  last = length(vec)
+  for (i in 1:l(parts)) {
+    begin = (window_size*(i-1) + 1) + mod
+    parts[[i + offset]] = vec[begin:min(begin + window_size - 1, last)]
+  }
+  parts
+}
+# jagged.partition(1:25, 4, 2)
+powerset = function(vector) {
+  all = list()
+  if (length(vector) > 1) {
+    for (i in 1:length(vector)) {
+      byis = combn(vector, i)
+      for (c in 1:ncol(byis)) {
+        all[[length(all)+1]] = byis[,c]
+      }
+    }
+  }
+  else {
+    all[[1]] = vector
+  }
+  return(all)
+}
+
+auc = function(f, sequence) { # area under curve (function)
+  ys = f(sequence)
+  id = order(sequence)
+  sum(diff(sequence[id]) * rollmean(ys[id], 2))
+} 
+auv = function(ys, xs) { # area under vector
+  id = order(xs)
+  sum(diff(xs[id]) * rollmean(ys[id], 2))
+} 
+
+plotfn = function(fn, xs) { plot(xs, fn(xs), type='l') }
+
