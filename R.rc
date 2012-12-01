@@ -88,11 +88,20 @@ auc = function(f, sequence) { # area under curve (function)
   ys = f(sequence)
   id = order(sequence)
   sum(diff(sequence[id]) * rollmean(ys[id], 2))
-} 
+}
 auv = function(ys, xs) { # area under vector
   id = order(xs)
   sum(diff(xs[id]) * rollmean(ys[id], 2))
-} 
+}
 
 plotfn = function(fn, xs) { plot(xs, fn(xs), type='l') }
+
+printpdf = function(filename, plot.function, width=10) {
+  height = width / 1.61803399
+  plot.function()
+  pdf(paste("/Users/chbrown/ut/stat-mod-1/project/plots", filename, sep="/"), width=width, height=height)
+  plot.function()
+  dev.off()
+}
+
 

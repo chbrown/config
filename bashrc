@@ -6,12 +6,13 @@ export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 # history control
 export HISTCONTROL=ignoredups:ignorespace
-export HISTSIZE=100000000
-export HISTFILESIZE=100000000000
+export HISTSIZE=10000000000
+export HISTFILESIZE=10000000000000
 shopt -s histappend
 shopt -s checkwinsize
 if [[ `$SHELL --version` =~ 'version 4' ]]; then
   shopt -s autocd
+  shopt -s globstar
 fi
 stty -ixon
 
