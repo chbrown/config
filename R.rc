@@ -96,12 +96,13 @@ auv = function(ys, xs) { # area under vector
 
 plotfn = function(fn, xs) { plot(xs, fn(xs), type='l') }
 
-printpdf = function(filename, plot.function, width=10) {
-  height = width / 1.61803399
+# no globals
+printpdf = function(filename, plot.function, width=6, height=0) {
+  if (height == 0) {
+    height = width / 1.61803399
+  }
   plot.function()
-  pdf(paste("/Users/chbrown/ut/stat-mod-1/project/plots", filename, sep="/"), width=width, height=height)
+  pdf(filename, width=width, height=height)
   plot.function()
   dev.off()
 }
-
-
