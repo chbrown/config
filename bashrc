@@ -30,7 +30,7 @@ alias py='python'
 alias hdfs='hadoop fs'
 alias iso='date +%Y%m%d'
 
-j_arch=/etc/profile.d/autojump.bash
+j_arch=/usr/etc/profile.d/autojump.bash
 j_mac=/usr/local/etc/autojump.sh
 j_debian=/usr/share/autojump/autojump.bash
 if [ -f $j_arch ]; then
