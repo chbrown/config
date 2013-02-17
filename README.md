@@ -8,7 +8,7 @@ Then stick whatever custom settings you like in your existing or newly created `
 
 `~/.bashrc.local` is the only copied file. Everything else is merely symlinked.
 
-These settings are intended to be agnostic between Mac OS X, Arch Linux, and a recent Ubuntu Linux.
+These settings are intended to be agnostic between Mac OS X, Arch Linux, and Ubuntu.
 
 # Affected Files
 
