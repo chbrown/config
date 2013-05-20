@@ -18,6 +18,10 @@ mean.na.rm = function(vec) { mean(vec, na.rm=TRUE) }
 #   lapply(as.list(1:times), f)
 # }
 
+lim = function(...) {
+  c(min(...), max(...))
+}
+
 sliding.matrix = function(vec, window_size, fn=NA) {
   mat = matrix(nrow=l(vec) - window_size, ncol=window_size)
   for (i in 1:(l(vec) - window_size)) {
@@ -105,4 +109,20 @@ printpdf = function(filename, plot.function, width=6, height=0) {
   pdf(filename, width=width, height=height)
   plot.function()
   dev.off()
+}
+
+rdirichlet = function (N, alphas)  {
+  L = length(alphas)
+  t(sapply(1:N, function(i) {
+    y = rgamma(L, alphas)
+    y/sum(y)
+  }))
+}
+
+ddirichlet = function(xs, alphas) {
+  if (sum(alphas < 0)) return(0)
+  if (length(alphas) != length(xs))
+    alphas = rep(alphas, length(xs))
+  const = prod(gamma(alphas)) / gamma(sum(alphas))
+  prod(xs^(alphas-1)) / const
 }
