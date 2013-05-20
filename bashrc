@@ -27,9 +27,11 @@ alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias token="tr -s [:space:] '\n'"
 alias py='python'
+alias ipy='ipython -i'
 alias hdfs='hadoop fs'
 alias iso='date +%Y%m%d'
 alias perlsed='perl -pe'
+alias count='sort | uniq -c | sort -g'
 
 j_arch=/usr/etc/profile.d/autojump.bash
 j_mac=/usr/local/etc/autojump.sh
