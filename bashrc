@@ -29,6 +29,7 @@ alias token="tr -s [:space:] '\n'"
 alias py='python'
 alias hdfs='hadoop fs'
 alias iso='date +%Y%m%d'
+alias perlsed='perl -pe'
 
 j_arch=/usr/etc/profile.d/autojump.bash
 j_mac=/usr/local/etc/autojump.sh
@@ -101,7 +102,7 @@ function tnls {
   ps aux | grep ssh | grep -e -L | grep : | grep -v grep
 }
 function gsclean {
-  gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=${1/.pdf/-gs.pdf} -f $1
+  gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="${1/.pdf/-gs.pdf}" -f "$1"
 }
 
 source ~/.bashrc.local
