@@ -24,3 +24,15 @@ At the time of writing, here are the files/directories that are symlinked:
 * `.hgrc`
 * `.vim/`
 * `.vimrc`
+
+## Mac OS X system settings
+
+`/etc/paths` should look something like this:
+
+    /usr/sbin
+    /usr/bin
+    /sbin
+    /bin
+
+`/etc/path.d/*` might also have some things. These are put after the contents of `/etc/paths`.
+
