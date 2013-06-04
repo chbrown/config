@@ -44,49 +44,6 @@ elif [ -f $j_debian ]; then
   . $j_debian
 fi
 
-function wgetar {
-    EXT='gz'
-    TAR_TYPE='z'
-    if [[ $1 == *bz2 ]]
-    then
-        EXT='bz2';
-        TAR_TYPE='j';
-    fi
-    wget $1 -O $2.tar.$EXT
-    mkdir tmp
-    tar -C tmp -x -$TAR_TYPE -f $2.tar.$EXT
-    rm $2.tar.$EXT
-    mv tmp/* ./$2
-    rmdir tmp
-}
-function tx {
-  if [ $# -lt 1 ]
-  then
-    # no file specified
-    TEXFILES=$(ls *.tex)
-  else
-    TEXFILES=($1)
-  fi
-  TEXFILE=${TEXFILES[0]/\.tex/}
-  echo "Rendering $TEXFILE"
-  latex -interaction=scrollmode $TEXFILE && dvipdf $TEXFILE && open -a TeXShop.app $TEXFILE.pdf
-}
-function ptx {
-  if [ $# -lt 1 ]
-  then
-    # no file specified
-    TEXFILES=$(ls *.tex)
-  else
-    TEXFILES=($1)
-  fi
-  echo "Rendering ${TEXFILES[0]}"
-  pdflatex -interaction=scrollmode ${TEXFILES[0]} && open -a TeXShop.app ${TEXFILES[0]/\.tex/}.pdf
-}
-function copy_id_rsa {
-  # like ssh-copy-id
-  # eg. `copy_id_rsa chbrown@linode` or `copy_id_rsa root@66.228.38.64`
-  cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir -p ~/.ssh; cat - >> ~/.ssh/authorized_keys2"
-}
 function cdp {
   mkdir -p $1
   cd $1
@@ -96,15 +53,6 @@ function cdr {
 }
 function lsd {
   lsa $@ | grep ^d
-}
-#function redis-del {
-#  redis-cli --raw keys $1 | xargs redis-cli del
-#}
-function tnls {
-  ps aux | grep ssh | grep -e -L | grep : | grep -v grep
-}
-function gsclean {
-  gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile="${1/.pdf/-gs.pdf}" -f "$1"
 }
 
 source ~/.bashrc.local
