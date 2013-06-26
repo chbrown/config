@@ -2,6 +2,7 @@
 
 ## Installation
 
+    cd ~
     git clone git://github.com/chbrown/dotfiles.git .dotfiles
     cd .dotfiles
     ./INSTALL
