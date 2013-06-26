@@ -2,50 +2,75 @@
 import os
 import shutil
 
-# Run this in its original directory!
 
-def ensure_dirpath(dirpath):
+def mkdirp(dirpath):
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
     return dirpath
 
-try:
-    trash = ensure_dirpath('/tmp/dotfiles-originals')
-    open(os.path.join(trash, 'dummy')).close()
-except Exception, e:
-    print e
-    trash = ensure_dirpath('../tmp')
 
-def trash_file(filepath, rm_on_failure=False):
-    trash_dest = os.path.join(trash, filepath.replace('../.', ''))
+def move(src, dest):
+    print '- mv %s %s' % (src, dest)
+    os.rename(src, dest)
+
+
+def remove(filepath):
+    print "- rm %s" % filepath
+    os.remove(filepath)
+
+
+def symlink(src, dest):
+    # ln [-Ffhinsv] source_file [target_file]
+    #   the source_file should already exist.
+    #   the target_file is what you're creating.
+    print 'ln -s %s %s' % (src, dest)
+    os.symlink(src, dest)
+
+
+def trash(filepath, trash_directory, remove_on_failure=False):
+    dest = os.path.join(trash_directory, filepath.replace('../.', ''))
     try:
-        print "- mv %s %s" % (filepath, trash_dest)
-        os.rename(filepath, trash_dest)
+        move(filepath, dest)
     except Exception, e:
         print e
-        if rm_on_failure:
-            print "- rm %s" % filepath
-            os.remove(filepath)
+        if remove_on_failure:
+            remove(filepath)
 
-for src in os.listdir('.'):
-    if src[0] != '.' and src not in ['bashrc.local', 'INSTALL', 'README.md']:
-        dest = '../.%s' % src
-        # lexists is like .exists() but returns true for broken symbolic links
-        if os.path.lexists(dest):
-            if os.path.islink(dest):
-                print "- %s links to -> %s" % (dest, os.path.realpath(dest))
-                print "- rm %s" % (dest)
-                os.remove(dest)
-            else:
-                print "- %s already exists." % (dest)
-                trash_file(dest)
 
-        # the source path is evaluated relative to the link path.
-        src = 'dotfiles/%s' % src
-        print 'ln -s %s %s' % (src, dest)
-        os.symlink(src, dest)
+def main():
+    # Run this in its original directory!
+    here = os.path.abspath(os.path.dirname(__file__))
+    parent = os.path.dirname(here)
+    print 'here', here, 'parent', parent
 
-bashrc_local = '../.bashrc.local'
-if not os.path.exists(bashrc_local):
-    print 'cp %s %s' % ('bashrc.local', bashrc_local)
-    shutil.copyfile('bashrc.local', bashrc_local)
+    try:
+        trash_directory = mkdirp('/tmp/dotfiles-originals')
+        dummy_file = os.path.join(trash_directory, 'dummy.txt')
+        with open(dummy_file, 'w') as fp:
+            fp.write('file access tested successfully')
+    except Exception, e:
+        print e
+        trash_directory = mkdirp('../tmp')
+
+    for src in os.listdir('.'):
+        if src[0] != '.' and src not in ['bashrc.local', 'INSTALL', 'README.md']:
+            dest = '../.%s' % src
+            # lexists is like .exists() but returns true for broken symbolic links
+            if os.path.lexists(dest):
+                if os.path.islink(dest):
+                    print "- %s links to -> %s" % (dest, os.path.realpath(dest))
+                    remove(dest)
+                else:
+                    print "- %s already exists." % dest
+                    trash(dest)
+
+            # the source path is evaluated relative to the link path.
+            src = os.path.relpath(src, parent)
+            symlink(src, dest)
+
+    bashrc_local = '../.bashrc.local'
+    if not os.path.exists(bashrc_local):
+        print 'cp %s %s' % ('bashrc.local', bashrc_local)
+        shutil.copyfile('bashrc.local', bashrc_local)
+
+main()

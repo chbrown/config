@@ -1,14 +1,16 @@
 # Custom local settings that I like
 
-To install, run:
+## Installation
 
+    git clone git://github.com/chbrown/dotfiles.git .dotfiles
+    cd .dotfiles
     ./INSTALL
 
 Then stick whatever custom settings you like in your existing or newly created `~/.bashrc.local` file.
 
 `~/.bashrc.local` is the only copied file. Everything else is merely symlinked.
 
-These settings are intended to be agnostic between Mac OS X, Arch Linux, and Ubuntu.
+These settings are intended to be agnostic (or adaptive) between Mac OS X, Arch Linux, and Ubuntu.
 
 # Affected Files
 
