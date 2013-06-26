@@ -10,7 +10,7 @@
 
 [alias]
     ci = commit
-    di = diff --color-words
+    di = diff
     st = status
 
 [core]
