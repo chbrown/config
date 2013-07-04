@@ -3,7 +3,7 @@ import os
 import shutil
 
 # a list of files that we don't install (symlink) like everything else
-blacklist = ['INSTALL', 'README.md', 'bashrc.local', 'new_mac.sh']
+blacklist = ['INSTALL', 'README.md', 'bashrc.local', 'new_mac.sh', 'scripts.sh']
 
 
 def mkdirp(dirpath):
