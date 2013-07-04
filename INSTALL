@@ -2,6 +2,9 @@
 import os
 import shutil
 
+# a list of files that we don't install (symlink) like everything else
+blacklist = ['INSTALL', 'README.md', 'bashrc.local', 'new_mac.sh']
+
 
 def mkdirp(dirpath):
     if not os.path.exists(dirpath):
@@ -53,7 +56,7 @@ def main():
         trash_directory = mkdirp('../tmp')
 
     for src in os.listdir('.'):
-        if src[0] != '.' and src not in ['bashrc.local', 'INSTALL', 'README.md']:
+        if src[0] != '.' and src not in blacklist:
             dest = '../.%s' % src
             # lexists is like .exists() but returns true for broken symbolic links
             if os.path.lexists(dest):
