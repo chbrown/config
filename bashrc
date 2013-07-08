@@ -26,6 +26,7 @@ alias lsl='ls -l'
 alias lower="tr '[A-Z]' '[a-z]'"
 alias upper="tr '[a-z]' '[A-Z]'"
 alias token="tr -s [:space:] '\n'"
+alias flatten="tr -s [:space:] ' '"
 alias py='python'
 alias ipy='ipython -i'
 alias hdfs='hadoop fs'
