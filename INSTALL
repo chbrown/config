@@ -4,7 +4,7 @@ import shutil
 
 # a list of files that we don't install (symlink) like everything else
 blacklist = [
-    'INSTALL', 'README.md', '.DS_Store', '.git', '.gitignore'
+    'INSTALL', 'README.md', '.DS_Store', '.git', '.gitignore',
     'bashrc.local', 'new_mac.sh', 'scripts.sh']
 
 
