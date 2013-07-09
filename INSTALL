@@ -67,7 +67,7 @@ def main():
                     remove(dest)
                 else:
                     print "- %s already exists." % dest
-                    trash(dest)
+                    trash(dest, trash_directory)
 
             # the source path is evaluated relative to the link path.
             src = os.path.relpath(src, parent)
