@@ -55,6 +55,10 @@ function cdr {
 function lsd {
   lsa $@ | grep ^d
 }
+function fullpath {
+  # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
+  echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1")
+}
 
 source ~/.bashrc.local
 
