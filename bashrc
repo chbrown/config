@@ -60,6 +60,19 @@ function fullpath {
   echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1")
 }
 
+# Mac OS X -only functions
+if [ `uname` = Darwin ]; then
+  function o {
+    default_target="."
+    open ${1:-$default_target}
+  }
+  function e {
+    APP='Sublime Text 2.app'
+    # $* is the list of arguments, $@ is $* but quoted, and $# is the number of args in $*/$@
+    [ $# -lt 1 ] && open -a "$APP" . || open -a "$APP" $@
+  }
+fi
+
 source ~/.bashrc.local
 
 #export PS1="[\u@$MACHINE \w]\$ "
