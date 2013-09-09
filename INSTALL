@@ -70,15 +70,9 @@ def test_dirpath(dirpath, noop=False):
         return False
 
 
-def trash(filepath, trash_directory, remove_on_failure=False):
-    dest = os.path.join(trash_directory, filepath.replace('../.', ''))
-
-    try:
-        move(filepath, dest)
-    except Exception, e:
-        print e
-        if remove_on_failure:
-            remove(filepath)
+def trash(src, trash_dirpath, noop=False):
+    dest = os.path.join(trash_dirpath, src.replace('../.', ''))
+    move(src, dest, noop=noop)
 
 
 def install_scripts(dirpath, noop=False):
@@ -99,17 +93,20 @@ def main():
     parser.add_argument('-d', '--destination', help='Destination directory', default=os.path.expanduser('~'))
     parser.add_argument('-l', '--local-rc', help='Name of local rc file', default='.localrc')
     parser.add_argument('-s', '--scripts', help='Scripts path', default='~/bin')
+    parser.add_argument('-t', '--trash', help='Trash directory')
 
     opts = parser.parse_args()
     dest_dirpath = opts.destination
     noop = opts.dry_run
 
-    trash_dirpath = '/tmp/dotfiles-originals'
-    # see if we have access to root /tmp
-    if not test_dirpath(trash_dirpath, noop=noop):
-        # if not, default to '<destination>/tmp'
-        trash_dirpath = os.path.join(dest_dirpath, 'tmp')
-        mkdir_p(trash_dirpath, noop=noop)
+    trash_dirpath = opts.trash
+    if not trash_dirpath:
+        trash_dirpath = '/tmp/dotfiles-originals'
+        # see if we have access to root /tmp
+        if not test_dirpath(trash_dirpath, noop=noop):
+            # if not, default to '<destination>/tmp'
+            trash_dirpath = os.path.join(dest_dirpath, 'tmp')
+            mkdir_p(trash_dirpath, noop=noop)
 
     filenames = [filename for filename in os.listdir(src_dirpath) if filename not in blacklist]
     for filename in filenames:
