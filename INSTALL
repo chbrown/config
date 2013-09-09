@@ -71,7 +71,7 @@ def test_dirpath(dirpath, noop=False):
 
 
 def trash(src, trash_dirpath, noop=False):
-    dest = os.path.join(trash_dirpath, src.replace('../.', ''))
+    dest = os.path.join(trash_dirpath, os.path.basename(src))
     move(src, dest, noop=noop)
 
 
