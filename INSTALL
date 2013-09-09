@@ -1,39 +1,78 @@
 #!/usr/bin/env python
 import os
+import sys
 import shutil
 
 # a list of files that we don't install (symlink) like everything else
 blacklist = [
-    'INSTALL', 'README.md', '.DS_Store', '.git', '.gitignore',
-    'bashrc.local', 'new_mac.sh', 'scripts.sh']
+    '.DS_Store',
+    '.git',
+    '.gitignore',
+    'INSTALL',
+    'README.md',
+    'localrc',
+    'new_mac.sh']
+
+src_dirpath = os.path.abspath(os.path.dirname(__file__))  # aka, here
 
 
-def mkdirp(dirpath):
-    if not os.path.exists(dirpath):
-        os.makedirs(dirpath)
-    return dirpath
+def mkdir_p(dirpath, noop=False):
+    print 'mkdir -p %s' % dirpath
+    if not noop:
+        if not os.path.exists(dirpath):
+            os.makedirs(dirpath)
 
 
-def move(src, dest):
-    print '- mv %s %s' % (src, dest)
-    os.rename(src, dest)
+def touch(filepath, noop=False):
+    print 'touch %s' % filepath
+    if not noop:
+        with open(filepath, 'w') as fd:
+            fd.write('Write access granted. This file can be safely deleted.')
 
 
-def remove(filepath):
-    print "- rm %s" % filepath
-    os.remove(filepath)
+def move(src, dest, noop=False):
+    print 'mv %s %s' % (src, dest)
+    if not noop:
+        shutil.move(src, dest)
 
 
-def symlink(src, dest):
+def copy(src, dest, noop=False):
+    print 'cp %s %s' % (src, dest)
+    if not noop:
+        shutil.copy(src, dest)
+
+
+def remove(filepath, noop=False):
+    print 'rm %s' % filepath
+    if not noop:
+        os.remove(filepath)
+
+
+def symlink(src, dest, noop=False):
     # ln [-Ffhinsv] source_file [target_file]
     #   the source_file should already exist.
     #   the target_file is what you're creating.
     print 'ln -s %s %s' % (src, dest)
-    os.symlink(src, dest)
+    if not noop:
+        os.symlink(src, dest)
+
+
+def test_dirpath(dirpath, noop=False):
+    '''Returns true if the directory exists / can be created and we have write access'''
+    try:
+        mkdir_p(dirpath, noop=noop)
+        test_filepath = os.path.join(dirpath, 'dummy.txt')
+        touch(test_filepath, noop=noop)
+        remove(test_filepath, noop=noop)
+        return True
+    except Exception, exc:
+        print >> sys.stderr, exc
+        return False
 
 
 def trash(filepath, trash_directory, remove_on_failure=False):
     dest = os.path.join(trash_directory, filepath.replace('../.', ''))
+
     try:
         move(filepath, dest)
     except Exception, e:
@@ -42,40 +81,62 @@ def trash(filepath, trash_directory, remove_on_failure=False):
             remove(filepath)
 
 
+def install_scripts(dirpath, noop=False):
+    if not os.path.exists(dirpath):
+        git_clone_command = 'git clone git://github.com/chbrown/scripts.git %s' % dirpath
+        print git_clone_command
+        if not noop:
+            os.system(git_clone_command)
+    else:
+        print '(ls -l) %s/' % dirpath
+
+
 def main():
-    # Run this in its original directory!
-    here = os.path.abspath(os.path.dirname(__file__))
-    parent = os.path.dirname(here)
-    print 'here', here, 'parent', parent
+    import argparse
+    parser = argparse.ArgumentParser(description='Symlink version controlled dotfiles into home directory',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('-n', '--dry-run', action='store_true', help='Do not create, move, or delete anything')
+    parser.add_argument('-d', '--destination', help='Destination directory', default=os.path.expanduser('~'))
+    parser.add_argument('-l', '--local-rc', help='Name of local rc file', default='.localrc')
+    parser.add_argument('-s', '--scripts', help='Scripts path', default='~/bin')
 
-    try:
-        trash_directory = mkdirp('/tmp/dotfiles-originals')
-        dummy_file = os.path.join(trash_directory, 'dummy.txt')
-        with open(dummy_file, 'w') as fp:
-            fp.write('file access tested successfully')
-    except Exception, e:
-        print e
-        trash_directory = mkdirp('../tmp')
+    opts = parser.parse_args()
+    dest_dirpath = opts.destination
+    noop = opts.dry_run
 
-    for src in os.listdir('.'):
-        if src not in blacklist:
-            dest = '../.%s' % src
-            # lexists is like .exists() but returns true for broken symbolic links
-            if os.path.lexists(dest):
-                if os.path.islink(dest):
-                    print "- %s links to -> %s" % (dest, os.path.realpath(dest))
-                    remove(dest)
-                else:
-                    print "- %s already exists." % dest
-                    trash(dest, trash_directory)
+    trash_dirpath = '/tmp/dotfiles-originals'
+    # see if we have access to root /tmp
+    if not test_dirpath(trash_dirpath, noop=noop):
+        # if not, default to '<destination>/tmp'
+        trash_dirpath = os.path.join(dest_dirpath, 'tmp')
+        mkdir_p(trash_dirpath, noop=noop)
 
-            # the source path is evaluated relative to the link path.
-            src = os.path.relpath(src, parent)
-            symlink(src, dest)
+    filenames = [filename for filename in os.listdir(src_dirpath) if filename not in blacklist]
+    for filename in filenames:
+        src_filepath = os.path.join(src_dirpath, filename)
+        dest_filepath = os.path.join(dest_dirpath, '.' + filename)
+        if os.path.islink(dest_filepath):
+            existing_dest_realpath = os.path.realpath(dest_filepath)
+            print '(ls -l) %s -> %s' % (dest_filepath, existing_dest_realpath)
+            remove(dest_filepath, noop=noop)
+        elif os.path.exists(dest_filepath):
+            print '(ls -l) %s' % dest_filepath
+            trash(dest_filepath, trash_dirpath, noop=noop)
 
-    bashrc_local = '../.bashrc.local'
-    if not os.path.exists(bashrc_local):
-        print 'cp %s %s' % ('bashrc.local', bashrc_local)
-        shutil.copyfile('bashrc.local', bashrc_local)
+        # the source path is evaluated relative to the link path.
+        src_relpath = os.path.relpath(src_filepath, dest_dirpath)
+        symlink(src_relpath, dest_filepath, noop=noop)
 
-main()
+    local_rc_filepath = os.path.join(dest_dirpath, opts.local_rc)
+    if not os.path.exists(local_rc_filepath):
+        src_filepath = os.path.join(src_dirpath, 'localrc')
+        copy(src_filepath, local_rc_filepath, noop=noop)
+    else:
+        print '(ls -l) %s' % local_rc_filepath
+
+    # install scripts to ~/bin if ~/bin does not exist
+    install_scripts(os.path.expanduser(opts.scripts), noop=noop)
+
+
+if __name__ == '__main__':
+    main()

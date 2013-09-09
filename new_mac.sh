@@ -7,7 +7,7 @@ echo 'Updating homebrew'
 brew update
 
 echo 'Installing several homebrew packages'
-brew install ack autoconf automake bash curl dnsmasq gfortran jpegoptim libxml2 libyaml mongodb nginx node parallel phantomjs postgresql proctools redis ruby sqlite wget wkhtmltopdf youtube-dl
+brew install ack autoconf automake bash curl jpegoptim libxml2 libyaml node proctools redis ruby wget youtube-dl
 
 echo 'Setting some Mac OS X defaults'
 
@@ -20,7 +20,6 @@ defaults write com.apple.finder DisableAllAnimations -bool TRUE
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool FALSE
 defaults write com.apple.finder FXEnableSlowAnimation -bool FALSE
-defaults write com.apple.finder QuitMenuItem -bool TRUE
 defaults write com.apple.finder QuitMenuItem -bool TRUE
 
 echo '- Dock settings'

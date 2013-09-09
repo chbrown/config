@@ -2,7 +2,7 @@
 [ -z "$PS1" ] && return
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:$LD_LIBRARY_PATH
+[ -d ~/bin ] && export PATH=~/bin:$PATH
 
 # history control
 export HISTCONTROL=ignoredups:ignorespace
@@ -18,21 +18,23 @@ stty -ixon
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export GREP_OPTIONS='--color=auto'
 export EDITOR=vim
-[ -d ~/bin ] && export PATH=~/bin:$PATH
 
+alias act='source bin/activate'
+alias awkt='awk -F \\t'
+alias count='sort | uniq -c | sort -g'
+alias flatten="tr -s [:space:] ' '"
+alias hdfs='hadoop fs'
+alias ipy='ipython -i'
+alias iso='date +%Y%m%d'
+alias lower="tr '[A-Z]' '[a-z]'"
 alias lsa='ls -la'
 alias lsl='ls -l'
-alias lower="tr '[A-Z]' '[a-z]'"
-alias upper="tr '[a-z]' '[A-Z]'"
-alias token="tr -s [:space:] '\n'"
-alias flatten="tr -s [:space:] ' '"
-alias py='python'
-alias ipy='ipython -i'
-alias hdfs='hadoop fs'
-alias iso='date +%Y%m%d'
 alias perlsed='perl -pe'
-alias count='sort | uniq -c | sort -g'
+alias py='python'
+alias token="tr -s [:space:] '\n'"
+alias upper="tr '[a-z]' '[A-Z]'"
 
 j_arch=/usr/etc/profile.d/autojump.bash
 j_mac=/usr/local/etc/autojump.sh
@@ -69,26 +71,35 @@ if [ `uname` = Darwin ]; then
   function e {
     APP='Sublime Text 2.app'
     # $* is the list of arguments, $@ is $* but quoted, and $# is the number of args in $*/$@
-    [ $# -lt 1 ] && open -a "$APP" . || open -a "$APP" $@
+    if [ $# -lt 1 ]; then
+      # if there were no arguments specified, simply start editing in the current directory
+      open -a "$APP" .
+    else
+      # start editing all specified paths (might be just one)
+      open -a "$APP" $@
+    fi
+  }
+  function mou {
+    open -a Mou.app $1
   }
 fi
 
-source ~/.bashrc.local
+# -e is true for existing files
+[ -e ~/.localrc ] && source ~/.localrc
 
-#export PS1="[\u@$MACHINE \w]\$ "
-# above: normal prompt. below: green prompt.
 export PS1="\[\e[1;32m\][\u@$MACHINE \w]\$\[\e[0m\] "
-# the \[\033[G\] at the beginning glues the rest to the front of the prompt.
-# but it doesn't play nice with virtualenv
-#export PS1='\h:\W \u\$ ' # original Mac OS X PS1
 
-# open last pwd if there is one:
-if [ -f /tmp/pwd ] && [ -z $WD ]; then
-  echo Navigating to last directory: `cat /tmp/pwd`
-  cd `cat /tmp/pwd`
-fi
-if [ -n "$WD" ]; then
+# open last working directory if there is one.
+# this should come after `source ~/.localrc` so that .localrc can `export WD=~/wherever` if desired.
+#   -n is true for not-null strings
+#   -z is true for null strings
+if [ -n "$WD" ] && [ -d "$WD" ]; then
   cd $WD
+elif [ -f /tmp/pwd ]; then
+  WD=$(cat /tmp/pwd)
+  if [ -n "$WD" ] && [ -d "$WD" ]; then
+    cd $WD
+  fi
 fi
 
 # `trap <cmd> DEBUG` runs cmd after every "simple command"
