@@ -1,13 +1,13 @@
 # Version controlled configuration files
 
-Installation:
+**Installation:**
 
     cd ~
     git clone git://github.com/chbrown/dotfiles.git .dotfiles
     cd .dotfiles
     ./INSTALL
 
-You can also run `./INSTALL --help` to see a few options.
+You can also run `./INSTALL --help` to see the options.
 
 These files / directories are currently symlinked:
 
@@ -40,14 +40,14 @@ These config settings are intended to be agnostic or adaptive between Mac OS X, 
 
 These are loaded into the PATH variable, separated by colons.
 
-`/etc/path.d/*` might also have some things. These are put after the contents of `/etc/paths`.
+`/etc/path.d/*` might also contain some files. These are put after the contents of `/etc/paths`.
 
 This repository also provides a [`new_mac.sh`](new_mac.sh) script that helps configure an OS X install with reasonable defaults.
 It does a few things:
 
-* `chown`'s the system Python site-packages to the current user
-* installs some basic useful packages with [Homebrew](http://brew.sh/)
-* Uses `defaults` to remove many animations, disable a few warnings, overall making OS X more expert-friendly
+* `chown`'s the system Python site-packages to the current user.
+* Installs some basic useful packages with [Homebrew](http://brew.sh/).
+* Uses `defaults` to remove many animations, disable a few warnings, overall making OS X more expert-friendly.
 
 
 ## License
