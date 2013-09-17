@@ -13,7 +13,8 @@ blacklist = [
     'localrc',
     'new_mac.sh']
 
-src_dirpath = os.path.abspath(os.path.dirname(__file__))  # aka, here
+# here = os.path.dirname(__file__) or os.curdir
+here = os.path.abspath(os.path.dirname(__file__))
 
 
 def mkdir_p(dirpath, noop=False):
@@ -90,12 +91,14 @@ def main():
     parser = argparse.ArgumentParser(description='Symlink version controlled dotfiles into home directory',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('-n', '--dry-run', action='store_true', help='Do not create, move, or delete anything')
+    parser.add_argument('-s', '--source', help='Source directory', default=here)
     parser.add_argument('-d', '--destination', help='Destination directory', default=os.path.expanduser('~'))
     parser.add_argument('-l', '--local-rc', help='Name of local rc file', default='.localrc')
-    parser.add_argument('-s', '--scripts', help='Scripts path', default='~/bin')
+    parser.add_argument('-b', '--scripts', help='Scripts path', default='~/bin')
     parser.add_argument('-t', '--trash', help='Trash directory')
 
     opts = parser.parse_args()
+    src_dirpath = opts.source
     dest_dirpath = opts.destination
     noop = opts.dry_run
 
