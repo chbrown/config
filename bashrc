@@ -65,22 +65,27 @@ function fullpath {
 # Mac OS X -only functions
 if [ `uname` = Darwin ]; then
   function o {
-    default_target="."
-    open ${1:-$default_target}
-  }
-  function e {
-    APP='Sublime Text 2.app'
-    # $* is the list of arguments, $@ is $* but quoted, and $# is the number of args in $*/$@
-    if [ $# -lt 1 ]; then
+    # $* is the list of arguments.
+    # $@ is just like $*, but quoted.
+    # $# is the number of args in $*, which is the same as in $@
+    # in both cases of using $@ (an array) and $OPENFLAGS (also an array),
+    # by using the @ indexer, we get the elements back individually quoted
+    # if we wrap the whole ARR[@] in quotes
+    if [ $# -eq 0 ]; then
       # if there were no arguments specified, simply start editing in the current directory
-      open -a "$APP" .
+      echo Opening current directory: `pwd`
+      open "${OPENFLAGS[@]}" .
     else
-      # start editing all specified paths (might be just one)
-      open -a "$APP" $@
+      open "${OPENFLAGS[@]}" "$@"
     fi
   }
+  function e {
+    OPENFLAGS=(-a 'Sublime Text 2.app')
+    o "$@"
+  }
   function mou {
-    open -a Mou.app $1
+    OPENFLAGS=(-a Mou.app)
+    o "$@"
   }
 fi
 
