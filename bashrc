@@ -22,7 +22,7 @@ export GREP_OPTIONS='--color=auto'
 export EDITOR=vim
 
 alias act='source bin/activate'
-alias awkt='awk -F \\t'
+alias awk='awk -F \\t'
 alias count='sort | uniq -c | sort -g'
 alias flatten="tr -s [:space:] ' '"
 alias hdfs='hadoop fs'
@@ -80,12 +80,11 @@ if [ `uname` = Darwin ]; then
     fi
   }
   function e {
-    OPENFLAGS=(-a 'Sublime Text 2.app')
-    o "$@"
+    # the parentheses trigger a subshell, so that OPENFLAGS is not persisted globally
+    (OPENFLAGS=(-a 'Sublime Text 2.app'); o "$@")
   }
   function mou {
-    OPENFLAGS=(-a Mou.app)
-    o "$@"
+    (OPENFLAGS=(-a Mou.app); o "$@")
   }
 fi
 
