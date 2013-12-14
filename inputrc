@@ -1,6 +1,6 @@
 set completion-ignore-case on
 set completion-prefix-display-length 3
-Control-j: menu-complete
+#Control-j: menu-complete
 Control-k: menu-complete-backward
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
