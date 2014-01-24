@@ -1,0 +1,7 @@
+{
+  "devel": true,
+  "es5": true,
+  "indent": 2,
+  "undef": true,
+  "unused": false
+}
