@@ -19,6 +19,8 @@ These files / directories are currently symlinked:
     .gitconfig
     .gitignore_global
     .inputrc
+    .ipython/profile_default/ipython_config.py
+    .jshintrc
     .screenrc
     .tmux.conf
     .vim/
