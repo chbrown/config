@@ -85,6 +85,13 @@ defaults write com.apple.Xcode PBXCustomTemplateMacroDefinitions '{"ORGANIZATION
 echo '- Excel: disabling restoring windows'
 defaults write com.microsoft.Excel NSQuitAlwaysKeepsWindows -bool FALSE
 
+echo '- Quicklook: allow selecting text in quicklook previews'
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
+echo '- Silence startup chime'
+sudo nvram SystemAudioVolume=%80
+# to reset: sudo nvram -d SystemAudioVolume
+
 # echo '- Hiding "postgres" user from login options'
 # defaults write /Library/Preferences/com.apple.loginwindow HiddenUsersList -array-add postgres
 
