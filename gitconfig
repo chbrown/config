@@ -12,6 +12,7 @@
     ci = commit
     di = diff
     st = status
+    co = checkout
 
 [core]
     pager = cat
