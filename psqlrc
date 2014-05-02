@@ -1,0 +1,13 @@
+\set QUIET 1
+
+\pset pager off
+
+-- see http://robots.thoughtbot.com/improving-the-command-line-postgres-experience/
+-- for the source of the commands below
+\pset null '[NULL]'
+\x auto
+\set VERBOSITY verbose
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+
+\unset QUIET

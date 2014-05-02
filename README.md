@@ -21,6 +21,7 @@ These files / directories are currently symlinked:
     .inputrc
     .ipython/profile_default/ipython_config.py
     .jshintrc
+    .psqlrc
     .screenrc
     .tmux.conf
     .vim/
