@@ -81,7 +81,7 @@ if [ `uname` = Darwin ]; then
   }
   function e {
     # the parentheses trigger a subshell, so that OPENFLAGS is not persisted globally
-    (OPENFLAGS=(-a 'Sublime Text 2.app'); o "$@")
+    (OPENFLAGS=(-a 'Sublime Text.app'); o "$@")
   }
   function mou {
     (OPENFLAGS=(-a Mou.app); o "$@")
