@@ -104,6 +104,7 @@ class FSHelper(object):
             # evaluate the source path relative to the link path
             source = os.path.relpath(source, target)
         print 'ln -s %s %s' % (source, target)
+        self.mkdir_p(os.path.dirname(target))
         if not self.dry_run:
             os.symlink(source, target)
 
