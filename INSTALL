@@ -52,12 +52,14 @@ class FSHelper(object):
     def remove(self, path, trash=True):
         if self.dry_run:
             print 'rm %s' % path
-        elif not os.path.exists(path):
-            return
         elif os.path.islink(path):
             # display the resolution of the symlink before removing it
             print 'rm %s  # was -> %s' % (path, os.path.realpath(path))
+            # if path is a broken symlink, os.path.islink(path) will be True, but
+            # os.path.exists(path) will be False, which seems kind of strange.
             os.remove(path)
+        elif not os.path.exists(path):
+            return
         elif trash:
             filename = os.path.basename(path)
             path_in_trash = os.path.join(self.trash, filename)
