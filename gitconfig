@@ -13,6 +13,7 @@
     di = diff
     st = status
     co = checkout
+    l = log --oneline --graph --all --decorate --simplify-by-decoration
 
 [core]
     pager = cat
