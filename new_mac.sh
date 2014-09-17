@@ -97,3 +97,7 @@ sudo nvram SystemAudioVolume=%80
 
 # echo '- Not sure what this does'
 # defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
+
+echo 'Excluding /usr/local/lib/node_modules from TimeMachine backup'
+# http://blog.wanderview.com/blog/2013/01/15/time-machine-and-npm/
+tmutil addexclusion /usr/local/lib/node_modules
