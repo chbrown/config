@@ -2,3 +2,4 @@
 --type-add=html=.jade,.mako,.mak,.mu,.haml
 --type-set=clojure=.clj
 --type-set=illustrator:ext:ai
+--type-set=log:ext:log
