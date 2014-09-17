@@ -1,3 +1,2 @@
 install: --no-document
 update: --no-document
-gem: -n/usr/local/bin
