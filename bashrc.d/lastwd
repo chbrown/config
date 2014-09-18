@@ -1,0 +1,12 @@
+# open last working directory if there is one.
+# this should come after `source ~/.env` so that `~/.env` can set `WD=~/wherever` if desired.
+#   -n is true for not-null strings
+#   -z is true for null strings
+if [ -n "$WD" ] && [ -d "$WD" ]; then
+  cd $WD
+elif [ -f /tmp/pwd ]; then
+  WD=$(cat /tmp/pwd)
+  if [ -n "$WD" ] && [ -d "$WD" ]; then
+    cd $WD
+  fi
+fi
