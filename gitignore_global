@@ -3,3 +3,6 @@
 .Spotlight-V100
 .RData
 npm-debug.log
+node_modules/
+*.pyc
+.idea/
