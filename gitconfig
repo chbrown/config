@@ -18,6 +18,7 @@
 [core]
     pager = cat
     excludesfile = ~/.gitignore_global
+    autocrlf = input
 
 [push]
     default = upstream
