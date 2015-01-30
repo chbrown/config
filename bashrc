@@ -96,4 +96,3 @@ export PS1="\[\e[1;32m\][\u@$MACHINE \w]\$\[\e[0m\] "
 BASHRC_D=$(dirname $(readlink $BASH_SOURCE))/bashrc.d
 #source $BASHRC_D/timer
 #source $BASHRC_D/lastwd
-source $BASHRC_D/autojump
