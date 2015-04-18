@@ -11,6 +11,7 @@
 [alias]
     ci = commit
     di = diff
+    dc = diff --cached
     st = status
     co = checkout
     l = log --oneline --graph --all --decorate --simplify-by-decoration
