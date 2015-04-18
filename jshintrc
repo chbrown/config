@@ -1,6 +1,7 @@
 {
   "devel": true,
   "indent": 2,
+  "node": true,
   "undef": true,
-  "unused": false
+  "unused": true
 }
