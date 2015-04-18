@@ -4,5 +4,7 @@
 .RData
 npm-debug.log
 node_modules/
+*.egg-info/
 *.pyc
+.ipynb_checkpoints/
 .idea/
