@@ -163,6 +163,14 @@ def main():
     fs.remove(ipython_config_target_filepath)
     fs.symlink(ipython_config_source_filepath, ipython_config_target_filepath, relativize=False)
 
+    # link ~/.ipython/profile_default/custom/custom.js
+    print '[linking ipython custom.js]'
+    local_ipython_custom_js = 'ipython/profile_default/custom/custom.js'
+    ipython_custom_js_source_filepath = os.path.join(opts.source, local_ipython_custom_js)
+    ipython_custom_js_target_filepath = os.path.join(opts.destination, '.' + local_ipython_custom_js)
+    fs.remove(ipython_custom_js_target_filepath)
+    fs.symlink(ipython_custom_js_source_filepath, ipython_custom_js_target_filepath, relativize=False)
+
     # install scripts to ~/bin if ~/bin does not exist
     home_bin = os.path.expanduser(opts.scripts)
     fs.git_clone('git://github.com/chbrown/scripts.git', home_bin)
