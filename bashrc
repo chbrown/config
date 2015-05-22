@@ -92,6 +92,10 @@ fi
 #bind 'set completion-query-items 500'
 
 export PS1="\[\e[1;32m\][\u@$MACHINE \w]\$\[\e[0m\] "
+function shortPS {
+  # only show basename of working directory, and show it in magenta, instead of blue
+  export PS1="\[\e[1;32m\][\u@$MACHINE \[\e[1;35m\]\W\[\e[1;32m\]]\$\[\e[0m\] "
+}
 
 BASHRC_D=$(dirname $(readlink $BASH_SOURCE))/bashrc.d
 #source $BASHRC_D/timer
