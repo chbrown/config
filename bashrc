@@ -18,7 +18,6 @@ stty -ixon
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export GREP_OPTIONS='--color=auto'
 export EDITOR=vim
 
 # alias awk='awk -F \\t'
