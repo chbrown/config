@@ -15,6 +15,7 @@
     st = status
     co = checkout
     l = log --oneline --graph --all --decorate --simplify-by-decoration
+    lo = log --pretty=tformat:'%C(yellow)%h%C(reset)%d %C(magenta)%an <%ae>%C(reset), %C(green)%cr%C(reset): %s'
 
 [core]
     pager = cat
