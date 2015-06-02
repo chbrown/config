@@ -11,11 +11,9 @@ You can also run `./INSTALL --help` to see the options.
 
 These files / directories are currently symlinked:
 
-    .ackrc
     .bash_logout
     .bash_profile
     .bashrc
-    .gemrc
     .gitconfig
     .gitignore_global
     .inputrc
