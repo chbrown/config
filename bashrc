@@ -22,6 +22,7 @@ export EDITOR=vim
 
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
+alias total="awk '{sum += \$1} END {print sum}'"
 # alias iso='date +%Y%m%d'
 alias py='python'
 alias ipy='ipython -i'
