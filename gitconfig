@@ -26,3 +26,6 @@
 
 [credential "https://github.com"]
     username = chbrown
+
+[tag]
+    sort = version:refname
