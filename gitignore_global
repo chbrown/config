@@ -1,11 +1,16 @@
+# .npmignore defaults:
+.*.swp
+._*
 .DS_Store
-._.DS_Store
-.Spotlight-V100
-.RData
+.git
+.hg
+.lock-wscript
+.svn
+.waf-pickle-*
+CVS
 npm-debug.log
 node_modules/
+
+# python stuff
 *.egg-info/
 *.pyc
-.ipynb_checkpoints/
-.idea/
-tmp/
