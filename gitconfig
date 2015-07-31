@@ -29,7 +29,3 @@
 
 [tag]
     sort = version:refname
-
-[remote "origin"]
-    push = +refs/heads/*:refs/heads/*
-    push = +refs/tags/*:refs/tags/*
