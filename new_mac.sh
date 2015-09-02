@@ -102,6 +102,9 @@ echo '- Chrome.app: Disable swipe navigation'
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 # defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool FALSE # magic mouse swipe
 
+echo '- Disable Press-and-Hold to show accented characters'
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 echo 'Excluding /usr/local/lib/node_modules from TimeMachine backup'
 # http://blog.wanderview.com/blog/2013/01/15/time-machine-and-npm/
 tmutil addexclusion /usr/local/lib/node_modules
