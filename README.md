@@ -14,6 +14,8 @@ These files / directories are currently symlinked:
     .bash_logout
     .bash_profile
     .bashrc
+    .eslintrc
+    .gemrc
     .gitconfig
     .gitignore_global
     .inputrc
