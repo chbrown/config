@@ -102,8 +102,27 @@ echo '- Chrome.app: Disable swipe navigation'
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
 # defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool FALSE # magic mouse swipe
 
-echo '- Disable Press-and-Hold to show accented characters'
-defaults write -g ApplePressAndHoldEnabled -bool false
+echo '- Disable Press-and-Hold to show accented characters (allowing key repeat)'
+defaults write -g ApplePressAndHoldEnabled -bool FALSE
+
+echo '- Shorten delay before key repeat'
+# 120 is the longest option and 15 is the shortest option in System Preferences
+defaults write -g InitialKeyRepeat -int 15
+
+echo '- Increase rate when repeating held key'
+# 120 is the slowest option and 2 is the fastest option in System Preferences
+defaults write -g KeyRepeat -int 1
+
+echo '- Disabling GameKit libraries'
+# gamed is this process that hangs around and phones home all the time. No thanks.
+# https://discussions.apple.com/thread/5521495
+sudo defaults write /System/Library/LaunchAgents/com.apple.gamed Disabled -bool TRUE
+
+echo '- Disabling Photo Moments'
+# come on Apple I haven't opened Photos.app in years
+# also, not sure if these do anything, since I'm just guessing Disabled will work as it does with others
+sudo defaults write /System/Library/LaunchAgents/com.apple.photolibraryd Disabled -bool TRUE
+sudo defaults write /System/Library/LaunchAgents/com.apple.cloudphotosd Disabled -bool TRUE
 
 echo 'Excluding /usr/local/lib/node_modules from TimeMachine backup'
 # http://blog.wanderview.com/blog/2013/01/15/time-machine-and-npm/
