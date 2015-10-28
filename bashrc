@@ -44,7 +44,7 @@ function cdr {
   cd **/*$1*
 }
 function lsd {
-  lsa $@ | grep --color=never ^d
+  ls -la $@ | grep ^d
 }
 function fullpath {
   # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
