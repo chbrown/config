@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 [ -d ~/bin ] && export PATH=~/bin:$PATH
 
 # history control
