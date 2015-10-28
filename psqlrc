@@ -1,13 +1,25 @@
 \set QUIET 1
 
+-- ## printing options ## --
+
+-- don't page through results when they exceed terminal height
 \pset pager off
 
--- see http://robots.thoughtbot.com/improving-the-command-line-postgres-experience/
--- for the source of the commands below
+-- ␀ is too small
 \pset null '[NULL]'
-\x auto
+
+-- print each record in transposed format if it's too long (equivalent to \x auto)
+\pset expanded auto
+
+-- ## other options ## --
+
+-- increase the detail of error reports.
 \set VERBOSITY verbose
-\set HISTCONTROL ignoredups
+
+-- don't record the history of either 1) commands that begin with a space 2) immediately repeated commands
+\set HISTCONTROL ignoreboth
+
+-- tab-complete keywords to uppercase
 \set COMP_KEYWORD_CASE upper
 
 \unset QUIET
