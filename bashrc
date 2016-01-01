@@ -30,10 +30,15 @@ alias lsa='ls -la'
 alias perlsed='perl -pe'
 alias harmony='node --harmony'
 
+# tr -s indicates that multiple matches of the first string are converted into
+# a single instance of the second string
 alias flatten="tr -s [:space:] ' '"
-alias token="tr -s [:space:] '\n'"
-alias lower="tr '[A-Z]' '[a-z]'"
-alias upper="tr '[a-z]' '[A-Z]'"
+# tokenize removes all characters except alphanumerics (A-Za-z0-9) and
+# apostrophe (') and splits on whitespace into lines
+# the deletion must come first in case there are any tokens that are only punctuation
+alias tokenize="tr -C -s \"[:alnum:]'\" [:space:] | tr -s [:space:] '\n'"
+alias lower="tr [:upper:] [:lower:]"
+alias upper="tr [:lower:] [:upper:]"
 
 function cdp {
   mkdir -p $1
