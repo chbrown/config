@@ -22,4 +22,18 @@
 -- tab-complete keywords to uppercase
 \set COMP_KEYWORD_CASE upper
 
+-- within a transaction, and only in interactive mode, errors will not abort the entire transaction
+\set ON_ERROR_ROLLBACK interactive
+
+-- %M is the full host name
+-- %n is the database user name
+-- $/ is the database name
+-- %R is a sort of current-input-status marker (= normally, ^ in single line mode, ! if disconnected)
+-- %# is # for superusers, > otherwise
+\set PROMPT1 '%M %n@%/%R%# '
+
+-- PROMPT2 is shown in multiline input
+-- %R indicates what sort of state the interpreter was when ending the previous line
+\set PROMPT2 ' %R %# '
+
 \unset QUIET
