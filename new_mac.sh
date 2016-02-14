@@ -124,6 +124,9 @@ echo '- Disabling Photo Moments'
 sudo defaults write /System/Library/LaunchAgents/com.apple.photolibraryd Disabled -bool TRUE
 sudo defaults write /System/Library/LaunchAgents/com.apple.cloudphotosd Disabled -bool TRUE
 
+echo '- Disable automatic opening of Photos and other apps when mounting a media card'
+defaults write com.apple.ImageCapture disableHotPlug -bool FALSE
+
 echo 'Excluding /usr/local/lib/node_modules from TimeMachine backup'
 # http://blog.wanderview.com/blog/2013/01/15/time-machine-and-npm/
 tmutil addexclusion /usr/local/lib/node_modules
