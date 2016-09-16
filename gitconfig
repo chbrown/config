@@ -22,9 +22,6 @@
     pager = cat
     excludesfile = ~/.gitignore_global
 
-[push]
-    default = upstream
-
 [credential "https://github.com"]
     username = chbrown
 
