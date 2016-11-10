@@ -28,12 +28,7 @@ set smartcase
 "set laststatus=2
 
 " Default color scheme
-color molokai
-
-" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
+color zellner
 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
