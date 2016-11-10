@@ -9,7 +9,7 @@ export HISTSIZE=10000000000
 export HISTFILESIZE=10000000000000
 shopt -s histappend
 shopt -s checkwinsize
-if [[ `$SHELL --version` =~ 'version 4' ]]; then
+if [[ $($SHELL --version) =~ 'version 4' ]]; then
   shopt -s autocd
   shopt -s globstar
 fi
@@ -42,24 +42,27 @@ alias tokenize="tr -C -s \"[:alnum:]'\" [:space:] | tr -s [:space:] '\n'"
 alias lower="tr [:upper:] [:lower:]"
 alias upper="tr [:lower:] [:upper:]"
 
-function cdp {
+cdp() {
   mkdir -p $1
   cd $1
 }
-function cdr {
+cdr() {
   cd **/*$1*
 }
-function lsd {
+lsd() {
   ls -la $@ | grep ^d
 }
-function fullpath {
+fullpath() {
   # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
   echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1")
 }
+sha1() {
+  printf "%s" $1 | shasum -a 1 | awk '{print $1}'
+}
 
 # Mac OS X -only functions
-if [ `uname` = Darwin ]; then
-  function o {
+if [ $(uname) = Darwin ]; then
+  o() {
     # $* is the list of arguments.
     # $@ is just like $*, but quoted.
     # $# is the number of args in $*, which is the same as in $@
@@ -68,27 +71,27 @@ if [ `uname` = Darwin ]; then
     # if we wrap the whole ARR[@] in quotes
     if [ $# -eq 0 ]; then
       # if there were no arguments specified, simply start editing in the current directory
-      echo Opening current directory: `pwd`
+      echo Opening current directory: $(pwd)
       open "${OPENFLAGS[@]}" .
     else
       open "${OPENFLAGS[@]}" "$@"
     fi
   }
-  function e {
+  e() {
     # the parentheses trigger a subshell, so that OPENFLAGS is not persisted globally
     (OPENFLAGS=(-a 'Sublime Text.app'); o "$@")
   }
-  function mou {
+  mou() {
     (OPENFLAGS=(-a Mou.app); o "$@")
   }
 fi
 
 # -e is true for existing files
 if [ -e ~/.env ]; then
-  # `set -a` directs the shell to promote all variable assignments to environment variables
+  # 'set -a' directs the shell to promote all variable assignments to environment variables
   set -a
   source ~/.env
-  # `set +a` turns off the auto-environment setting
+  # 'set +a' turns off the auto-environment setting
   set +a
 fi
 
@@ -98,7 +101,7 @@ fi
 #bind 'set completion-query-items 500'
 
 export PS1="\[$(tput setaf 2)\][\u@$MACHINE \w]\$\[$(tput sgr0)\] "
-function shortPS {
+shortPS() {
   # only show basename of working directory, and show it in magenta, instead of blue
   export PS1="\[$(tput setaf 2)\][\u@$MACHINE \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\$\[\$(tput sgr0)\] "
 }

@@ -1,4 +1,4 @@
-# `trap <cmd> DEBUG` runs cmd after every "simple command"
+# 'trap <cmd> DEBUG' runs cmd after every "simple command"
 # but we only want to save the time of the first command after the prompt is shown
 # The ${X-$Y} means return X even if it's set to '', else $Y
 #   ${X:-$Y} syntax means return X if X is set AND X != '', else $Y
@@ -8,7 +8,7 @@ trap 'STARTED=${STARTED-$SECONDS}' DEBUG
 # PROMPT_COMMAND is executed as a regular Bash command just before Bash displays a prompt
 # autojump uses PROMPT_COMMAND so we need to append to that existing command
 # the PROMPT_COMMAND part below *must* be the last thing that runs.
-function timer_stop {
+timer_stop() {
   export LAST=$(($SECONDS - $STARTED))
   unset STARTED
 }
