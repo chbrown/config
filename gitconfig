@@ -15,7 +15,13 @@
     st = status
     co = checkout
     l = log --oneline --graph --all --decorate --simplify-by-decoration
-    lo = log --pretty=tformat:'%C(yellow)%h%C(reset)%d %C(magenta)%an <%ae>%C(reset), %C(green)%cr%C(reset): %s'
+    # %h  => abbreviated commit hash
+    # %an => author name
+    # %ae => author email
+    # %cd => commit date in --date=[...] format
+    # %ci => commit date in ISO-8601
+    # %cr => commit date in relative terms
+    lo = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
     gc-safe = gc --aggressive --no-prune
 
 [core]
