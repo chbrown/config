@@ -33,3 +33,7 @@
 
 [tag]
     sort = version:refname
+
+#[color "diff"]
+#    old = red strike
+#    new = green underline
