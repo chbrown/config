@@ -1,24 +1,17 @@
 {
-  "parser": "babel-eslint",
   "plugins": [
-    "eslint-plugin-react"
+    "react"
   ],
   "env": {
     "browser": true,
     "node": true
   },
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "forOf": true,
-    "jsx": true,
-    "modules": true,
-    "restParams": true,
-    "spread": true,
-    "templateStrings": true
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "semi": 1,
