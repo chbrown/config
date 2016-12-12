@@ -126,3 +126,6 @@ tmutil addexclusion /usr/local/lib/node_modules
 
 echo '- Disable Java automatic updates'
 defaults write /Library/Preferences/com.oracle.java.Java-Updater JavaAutoUpdateEnabled -bool FALSE
+
+echo '- Setting default handlers for Apple UTIs (Uniform Type Identifiers)'
+duti ./duti

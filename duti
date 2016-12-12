@@ -1,0 +1,14 @@
+# activate by running:
+#   duti ~/github/dotfiles/duti
+com.sublimetext.3 aux editor
+com.sublimetext.3 bbl editor
+com.sublimetext.3 bcf editor
+com.sublimetext.3 blg editor
+com.sublimetext.3 clj editor
+com.sublimetext.3 cljc editor
+com.sublimetext.3 cljs editor
+com.sublimetext.3 conf editor
+com.sublimetext.3 dtd editor
+com.sublimetext.3 fls editor
+com.sublimetext.3 rdf editor
+com.sublimetext.3 tmp editor
