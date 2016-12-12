@@ -52,6 +52,9 @@ It does a few things:
 * Installs some basic useful packages with [Homebrew](http://brew.sh/).
 * Uses `defaults` to remove many animations, disable a few warnings, overall making OS X more expert-friendly.
 
+## TODO
+
+Consider replacing INSTALL script with [GNU stow](https://www.gnu.org/software/stow/), à la [this blog post](https://taihen.org/managing-dotfiles-with-gnu-stow/).
 
 ## License
 
