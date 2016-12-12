@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
-echo 'Setting several Mac OS X defaults'
-defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool FALSE
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
-# defaults write NSGlobalDomain AppleFontSmoothing -int 2
-# defaults write NSGlobalDomain AppleLeopardUIMode -int 3
+# '-g' and '-globalDomain' are synonyms for NSGlobalDomain
+
+echo '- Global: show all file extensions everywhere'
+defaults write -g AppleShowAllExtensions -bool TRUE
+
+echo '- Global: disable / reduce / hasten animation'
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool FALSE
+defaults write -g NSWindowResizeTime -float 0.001
+
+echo '- Global: disable automatic termination of apps with no active windows'
+# apps that are automatically terminated when they have no windows open are
+# sometimes only partially terminated (Preview.app, for example, keeps open
+# its file descriptors until it explicitly quits)
+defaults write -g NSDisableAutomaticTermination -bool TRUE
 
 echo '- Dock: Reducing animation and kitsch'
 defaults write com.apple.dock expose-animation-duration -float 0.1
@@ -109,9 +117,12 @@ echo '- Disabling Photo Moments'
 sudo defaults write /System/Library/LaunchAgents/com.apple.photolibraryd Disabled -bool TRUE
 sudo defaults write /System/Library/LaunchAgents/com.apple.cloudphotosd Disabled -bool TRUE
 
-echo '- Disable automatic opening of Photos and other apps when mounting a media card'
-defaults write com.apple.ImageCapture disableHotPlug -bool FALSE
+echo '- Prevent Photos and other apps from automatically launching when a media card is mounted'
+defaults write com.apple.ImageCapture disableHotPlug -bool TRUE
 
-echo 'Excluding /usr/local/lib/node_modules from TimeMachine backup'
+echo '- Exclude /usr/local/lib/node_modules from TimeMachine backup'
 # http://blog.wanderview.com/blog/2013/01/15/time-machine-and-npm/
 tmutil addexclusion /usr/local/lib/node_modules
+
+echo '- Disable Java automatic updates'
+defaults write /Library/Preferences/com.oracle.java.Java-Updater JavaAutoUpdateEnabled -bool FALSE
