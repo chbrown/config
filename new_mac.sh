@@ -3,18 +3,6 @@
 echo "Taking ownership of the system Python's site-packages."
 chown -R $USER:staff /Library/Python/2.7/site-packages/
 
-echo 'Updating homebrew'
-brew update
-
-echo 'Installing several homebrew packages'
-brew install ack autoconf automake bash jpegoptim libxml2 libyaml node proctools redis wget
-
-echo 'Upgrading homebrew'
-brew upgrade
-
-echo 'Cleaning up after homebrew'
-brew cleanup
-
 echo 'Setting several Mac OS X defaults'
 defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool FALSE
