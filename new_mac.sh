@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Taking ownership of the system Python's site-packages."
-chown -R $USER:staff /Library/Python/2.7/site-packages/
-
 echo 'Setting several Mac OS X defaults'
 defaults write NSGlobalDomain AppleShowAllExtensions -bool TRUE
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool FALSE
