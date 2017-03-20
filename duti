@@ -12,3 +12,6 @@ com.sublimetext.3 dtd editor
 com.sublimetext.3 fls editor
 com.sublimetext.3 rdf editor
 com.sublimetext.3 tmp editor
+com.sublimetext.3 java editor
+com.sublimetext.3 edn editor
+com.sublimetext.3 tsx editor
