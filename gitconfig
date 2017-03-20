@@ -15,6 +15,7 @@
     st = status
     co = checkout
     l = log --oneline --graph --all --decorate --simplify-by-decoration
+    lall = log --oneline --graph --all --decorate
     # %h  => abbreviated commit hash
     # %an => author name
     # %ae => author email
