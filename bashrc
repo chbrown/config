@@ -59,6 +59,17 @@ sha1() {
   printf "%s" $1 | shasum -a 1 | awk '{print $1}'
 }
 
+# If Sublime Text is installed (the `subl` command exists), set up `a` and `e` functions.
+# We can't use aliases since we default to current directory when no arguments are supplied.
+if command -v subl >/dev/null 2>&1; then
+  e() {
+    subl ${@-.}
+  }
+  a() {
+    subl -a ${@-.}
+  }
+fi
+
 # Mac OS X -only functions
 if [ $(uname) = Darwin ]; then
   o() {
@@ -75,10 +86,6 @@ if [ $(uname) = Darwin ]; then
     else
       open "${OPENFLAGS[@]}" "$@"
     fi
-  }
-  e() {
-    # the parentheses trigger a subshell, so that OPENFLAGS is not persisted globally
-    (OPENFLAGS=(-a 'Sublime Text.app'); o "$@")
   }
   mou() {
     (OPENFLAGS=(-a Mou.app); o "$@")
