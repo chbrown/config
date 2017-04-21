@@ -63,10 +63,10 @@ sha1() {
 # We can't use aliases since we default to current directory when no arguments are supplied.
 if command -v subl >/dev/null 2>&1; then
   e() {
-    subl ${@-.}
+    subl "${@-.}"
   }
   a() {
-    subl -a ${@-.}
+    subl -a "${@-.}"
   }
 fi
 
