@@ -59,17 +59,6 @@ sha1() {
   printf "%s" $1 | shasum -a 1 | awk '{print $1}'
 }
 
-# If Sublime Text is installed (the `subl` command exists), set up `a` and `e` functions.
-# We can't use aliases since we default to current directory when no arguments are supplied.
-if command -v subl >/dev/null 2>&1; then
-  e() {
-    subl "${@-.}"
-  }
-  a() {
-    subl -a "${@-.}"
-  }
-fi
-
 # Mac OS X -only functions
 if [ $(uname) = Darwin ]; then
   o() {
@@ -99,6 +88,17 @@ if [ -e ~/.env ]; then
   source ~/.env
   # 'set +a' turns off the auto-environment setting
   set +a
+fi
+
+# If Sublime Text is installed (the `subl` command exists), set up `a` and `e` functions.
+# We can't use aliases since we default to current directory when no arguments are supplied.
+if command -v subl >/dev/null 2>&1; then
+  e() {
+    subl "${@-.}"
+  }
+  a() {
+    subl -a "${@-.}"
+  }
 fi
 
 [ -e ~/.localrc ] && source ~/.localrc
