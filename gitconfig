@@ -11,6 +11,7 @@
 [alias]
     ci = commit
     di = diff
+    df = diff --diff-algorithm=patience --word-diff=color --ignore-all-space
     dc = diff --cached
     st = status
     co = checkout
