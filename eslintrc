@@ -13,6 +13,9 @@
       "jsx": true
     }
   },
+  "globals": {
+    "chrome": false
+  },
   "rules": {
     "semi": 1,
     "comma-dangle": [1, "always-multiline"],
