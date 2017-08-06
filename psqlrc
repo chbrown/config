@@ -1,4 +1,5 @@
 \set QUIET 1
+-- see https://www.citusdata.com/blog/2017/07/16/customizing-my-postgres-shell-using-psqlrc/
 
 -- ## printing options ## --
 
