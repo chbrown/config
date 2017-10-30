@@ -15,6 +15,9 @@ echo '- Global: disable automatic termination of apps with no active windows'
 # its file descriptors until it explicitly quits)
 defaults write -g NSDisableAutomaticTermination -bool TRUE
 
+echo '- Screenshots: disabling drop shadows'
+defaults write com.apple.screencapture disable-shadow -bool TRUE
+
 echo '- Dock: Reducing animation and kitsch'
 defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.dock launchanim -bool FALSE
