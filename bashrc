@@ -3,6 +3,8 @@
 
 [ -d ~/bin ] && export PATH=~/bin:$PATH
 
+set -o noclobber
+
 # history control
 export HISTCONTROL=ignoredups:ignorespace
 export HISTSIZE=10000000000
