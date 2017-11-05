@@ -1,0 +1,52 @@
+[MASTER]
+ignore=CVS,.git
+load-plugins=
+persistent=yes
+unsafe-load-any-extension=no
+
+[MESSAGES CONTROL]
+disable=missing-docstring,invalid-name,broad-except
+
+[REPORTS]
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+output-format=text
+reports=no
+score=yes
+
+[REFACTORING]
+max-nested-blocks=5
+
+[FORMAT]
+expected-line-ending-format=LF
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+indent-after-paren=4
+indent-string='    '
+max-line-length=120
+max-module-lines=1000
+no-space-check=trailing-comma,dict-separator
+single-line-class-stmt=no
+single-line-if-stmt=no
+
+[LOGGING]
+logging-modules=logging
+
+[SIMILARITIES]
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=no
+min-similarity-lines=4
+
+[VARIABLES]
+allow-global-unused-variables=yes
+dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
+ignored-argument-names=_.*
+
+[CLASSES]
+defining-attr-methods=__init__,__new__
+valid-classmethod-first-arg=cls
+
+[IMPORTS]
+allow-wildcard-with-all=no
+
+[EXCEPTIONS]
+overgeneral-exceptions=
