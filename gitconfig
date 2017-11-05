@@ -30,6 +30,9 @@
     pager = cat
     excludesfile = ~/.gitignore_global
 
+[credential]
+    helper = osxkeychain
+
 [credential "https://github.com"]
     username = chbrown
 
