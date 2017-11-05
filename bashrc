@@ -21,7 +21,6 @@ export EDITOR=vim
 
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
-alias total="awk '{sum += \$1} END {print sum}'"
 alias now_d='date +%Y%m%d'
 alias now_dt='date +%Y%m%dT%H%M%S'
 alias py='python'
