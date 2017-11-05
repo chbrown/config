@@ -52,6 +52,9 @@ cdr() {
 lsd() {
   ls -la $@ | grep ^d
 }
+source_if_exists() {
+  [[ -e "$1" ]] && source "$1"
+}
 fullpath() {
   # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
   echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1")
@@ -102,7 +105,8 @@ if command -v subl >/dev/null 2>&1; then
   }
 fi
 
-[ -e ~/.localrc ] && source ~/.localrc
+source_if_exists "$HOME/.localrc"
+source_if_exists "$HOME/.iterm2_shell_integration.bash"
 
 #bind 'set page-completions off'
 #bind 'set completion-query-items 500'
