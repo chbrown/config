@@ -19,7 +19,7 @@
     "chrome": false
   },
   "rules": {
-    "semi": 1,
+    "semi": [1, "never"],
     "comma-dangle": [1, "always-multiline"],
     "no-dupe-args": 2,
     "no-dupe-keys": 2,
