@@ -3,7 +3,7 @@
 # TODO: show the current bundleid handler for a specific file:
 #   ?
 # activate by running:
-#   duti ~/github/dotfiles/duti
+#   duti ~/config/duti
 com.sublimetext.3 aux editor
 com.sublimetext.3 bbl editor
 com.sublimetext.3 bcf editor

@@ -1,38 +1,19 @@
 # Version controlled configuration files
 
-**Installation:**
+Install [`dotfiles/`](dotfiles/) with [GNU Stow](https://www.gnu.org/software/stow/):
 
-    cd ~
-    git clone git://github.com/chbrown/dotfiles.git .dotfiles
-    cd .dotfiles
-    ./INSTALL
+    git clone https://github.com/chbrown/config
+    cd config
+    stow --ignore='DS_Store' -Svvt $HOME dotfiles
 
-You can also run `./INSTALL --help` to see the options.
+N.b.: `stow`'s `--ignore` option implicitly adds an `$` to the end.
 
-These files / directories are currently symlinked:
+`.bashrc` sources `~/.localrc` if it exists.
 
-    .bash_logout
-    .bash_profile
-    .bashrc
-    .eslintrc
-    .gemrc
-    .gitconfig
-    .gitignore_global
-    .inputrc
-    .ipython/profile_default/ipython_config.py
-    .jshintrc
-    .psqlrc
-    .screenrc
-    .tmux.conf
-    .vim/
-    .vimrc
-
-`./INSTALL` will also create a file, `~/.localrc`, which should contain any sensitive credentials or machine-specific settings.
-
-These config settings are intended to be agnostic or adaptive between Mac OS X, Arch Linux, and Ubuntu.
+    echo 'export MACHINE=local' > ~/.localrc
 
 
-## Mac OS X system settings
+## macOS system settings
 
 `/etc/paths` should look something like this:
 
@@ -52,10 +33,7 @@ It does a few things:
 * Installs some basic useful packages with [Homebrew](http://brew.sh/).
 * Uses `defaults` to remove many animations, disable a few warnings, overall making OS X more expert-friendly.
 
-## TODO
-
-Consider replacing INSTALL script with [GNU stow](https://www.gnu.org/software/stow/), à la [this blog post](https://taihen.org/managing-dotfiles-with-gnu-stow/).
 
 ## License
 
-Copyright © 2011-2013 Christopher Brown. [MIT Licensed](http://opensource.org/licenses/MIT).
+Copyright © 2011-2017 Christopher Brown. [MIT Licensed](https://chbrown.github.io/licenses/MIT/#2011-2017).
