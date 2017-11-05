@@ -1,3 +1,7 @@
+# show the bundleid of an Application:
+#   mdls -name kMDItemCFBundleIdentifier -r /Applications/VLC.app
+# TODO: show the current bundleid handler for a specific file:
+#   ?
 # activate by running:
 #   duti ~/github/dotfiles/duti
 com.sublimetext.3 aux editor
@@ -7,11 +11,14 @@ com.sublimetext.3 blg editor
 com.sublimetext.3 clj editor
 com.sublimetext.3 cljc editor
 com.sublimetext.3 cljs editor
+com.sublimetext.3 cls editor
 com.sublimetext.3 conf editor
 com.sublimetext.3 dtd editor
 com.sublimetext.3 fls editor
 com.sublimetext.3 rdf editor
 com.sublimetext.3 tmp editor
 com.sublimetext.3 java editor
+com.sublimetext.3 json editor
 com.sublimetext.3 edn editor
 com.sublimetext.3 tsx editor
+org.videolan.vlc webm all
