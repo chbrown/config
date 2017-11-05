@@ -1,7 +1,19 @@
 set completion-ignore-case on
+set completion-map-case on
 set completion-prefix-display-length 3
+set completion-query-items 500
+set page-completions off
 #Control-j: menu-complete
 Control-k: menu-complete-backward
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
-set completion-map-case on
+
+set match-hidden-files off
+
+set mark-symlinked-directories on
+
+# Allow UTF-8 input and output
+set input-meta on
+set meta-flag on
+set convert-meta off
+set output-meta on
