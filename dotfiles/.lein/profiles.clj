@@ -1,4 +1,4 @@
-{:auth {:repository-auth {#"clojars" {:username "chbrown"}}}
+{:auth {:repository-auth {#"clojars" {:username :gpg :password :gpg}}}
  :user {:plugins [[lein-pprint "1.2.0"]
                   [lein-auto "0.1.3"]
                   [lein-cljfmt "0.5.7"]
