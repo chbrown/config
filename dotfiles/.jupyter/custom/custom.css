@@ -1,0 +1,9 @@
+/**
+If this file is added after your Jupyter notebook is already running,
+you will need to restart the Jupyter process.
+Otherwise, changes can be reloaded with just a browser refresh.
+*/
+
+.container {
+  width: 99% !important;
+}

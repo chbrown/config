@@ -1,0 +1,15 @@
+{
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": false
+    }
+  },
+  "Notebook": {
+    "Header": false
+  },
+  "CodeCell": {
+    "cm_config": {
+      "autoCloseBrackets": false
+    }
+  }
+}
