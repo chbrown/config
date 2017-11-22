@@ -1,0 +1,2 @@
+# Disable filesystem caching
+--no-cache-dir
