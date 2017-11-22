@@ -1,7 +1,9 @@
+# Call `pylint --generate-rcfile` to print out all options with defaults and comments
+
 [MASTER]
 ignore=CVS,.git
 load-plugins=
-persistent=yes
+persistent=no
 unsafe-load-any-extension=no
 
 [MESSAGES CONTROL]
