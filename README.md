@@ -15,7 +15,7 @@ N.b.: `stow`'s `--ignore` option implicitly adds an `$` to the end.
 `.bashrc` also prepends `~/bin` to your `PATH` environment variable,
 so you might also want to:
 
-      git clone https://github.com/chbrown/scripts ~/bin
+    git clone https://github.com/chbrown/scripts ~/bin
 
 
 ## macOS system settings
