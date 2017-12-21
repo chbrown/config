@@ -23,6 +23,8 @@
                            ; overrides
                            element  [[:inner 0]]
                            lazy-seq [[:inner 0]]
+                           thrown-with-msg? [[:inner 0]]
+                           are ^:replace [[:block 0]]
                            doto ^:replace [[:block 0]]}}
         :dependencies [[org.clojure/tools.namespace "0.3.0-alpha4"]
                        [org.clojure/tools.reader "1.1.1"]
