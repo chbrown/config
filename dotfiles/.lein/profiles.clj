@@ -11,6 +11,27 @@
                                                    org.clojure/tools.reader]]
                   [lein-codox "0.10.3"]]
         :cljfmt {:file-pattern #"\.clj[cs]?$"
+                 ; Inner rules:
+                 ; - Syntax: [:inner <n-spaces>] [:inner <n-spaces> <arg-index>]
+                 ;   * All subforms (arguments after the first symbol in the list, i.e., the function being called)
+                 ;     on new lines will be indented by 1 or 2 space characters.
+                 ;   * If <arg-index> is provided (rare), only apply the rule to the subform at that index
+                 ; [:inner 0] => indents all subforms at 2 spaces
+                 ; [:inner 1] => indents all subforms at 1 space
+                 ; [:inner 2 0] => only apply 2-space indentation to the first subform
+                 ; Block rules:
+                 ; - Syntax: [:block <start>]
+                 ;   * Subforms will left-aligned with the subform at index <start>
+                 ;     (iff that subform remains on the first line of the form)
+                 ; [:block 0] => indents all subforms to align with the first
+                 ;               (e.g., cond, do, try)
+                 ;               this primarily makes sense for arglists with only varargs, i.e., [& forms]
+                 ; [:block 1] => indents the third, fourth, (and so on) subforms to align with the second
+                 ;               (e.g., case, cond->, defprotocol, if, ... a.o.)
+                 ;               this makes most sense for an arglist like [main-arg & more]
+                 ; [:block 2] => indents the subforms after the third to align with the third
+                 ;               (e.g., catch, condp)
+                 ;               this makes most sense for an arglist like [main-arg second-main-arg & more]
                  ; see https://git.io/vS6QP for cljfmt defaults
                  :indents {; parsatron
                            let->> [[:inner 0]]
@@ -21,6 +42,7 @@
                            ; manifold
                            #"^extend-" [[:block 1] [:inner 1]] ; same as extend-protocol
                            ; overrides
+                           assoc [[:block 1]] ; doesn't work as intended, due to the doubling of key+val subforms
                            element  [[:inner 0]]
                            lazy-seq [[:inner 0]]
                            thrown-with-msg? [[:inner 0]]
