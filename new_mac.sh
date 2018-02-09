@@ -113,6 +113,7 @@ echo '- Disabling GameKit libraries'
 # gamed is this process that hangs around and phones home all the time. No thanks.
 # https://discussions.apple.com/thread/5521495
 sudo defaults write /System/Library/LaunchAgents/com.apple.gamed Disabled -bool TRUE
+launchctl unload -w /System/Library/LaunchAgents/com.apple.gamed.plist # SIP must be disabled
 
 echo '- Disabling Photo Moments'
 # come on Apple I haven't opened Photos.app in years
