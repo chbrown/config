@@ -36,6 +36,9 @@
 [credential "https://github.com"]
     username = chbrown
 
+[log]
+    date = iso
+
 [tag]
     sort = version:refname
 
