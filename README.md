@@ -17,6 +17,10 @@ so you might also want to:
 
     git clone https://github.com/chbrown/scripts ~/bin
 
+Install the other macOS-only configuration files:
+
+    stow --ignore='DS_Store' -Svvt $HOME macOS
+
 
 ## macOS system settings
 
