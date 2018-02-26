@@ -6,6 +6,21 @@
 # install this configuration file by running:
 #   duti ~/config/duti
 
+# Quick reference (see `man duti` for full details):
+# The duti configuration format consists of lines that take one of the following two formats:
+#     <BUNDLE_ID>  <FILE_IDENTIFIER>  <ROLE>
+#     <BUNDLE_ID>  <URL_SCHEME>
+#
+# <BUNDLE_ID> is a macOS identifier supplied by the application,
+#   which takes the form "com.example.bundleid", e.g.:
+#   com.microsoft.Excel, com.apple.dt.Xcode, org.audacityteam.audacity
+# <FILE_IDENTIFIER> can be any of:
+#   1) A macOS "Uniform Type Identifier" (UTI) (if it contains a dot but doesn't start with one)
+#   2) a filename extension (if it starts with a dot, or contains no dots)
+#   3) or a MIME type (if it contains a slash)
+# <ROLE> is one of: all | viewer | editor | shell | none
+# <URL_SCHEME> is a url protocol, e.g., http | ftp | gopher
+
 # the median bundleid for all my applications is 21 chars
 # the longest extension currently in frequent use is 5 chars
 com.sublimetext.3     aux   editor
