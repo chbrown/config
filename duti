@@ -6,23 +6,25 @@
 # install this configuration file by running:
 #   duti ~/config/duti
 
-com.sublimetext.3 aux editor
-com.sublimetext.3 bbl editor
-com.sublimetext.3 bcf editor
-com.sublimetext.3 blg editor
-com.sublimetext.3 clj editor
-com.sublimetext.3 cljc editor
-com.sublimetext.3 cljs editor
-com.sublimetext.3 cls editor
-com.sublimetext.3 conf editor
-com.sublimetext.3 dtd editor
-com.sublimetext.3 edn editor
-com.sublimetext.3 fls editor
-com.sublimetext.3 java editor
-com.sublimetext.3 json editor
-com.sublimetext.3 rdf editor
-com.sublimetext.3 swift editor
-com.sublimetext.3 tmp editor
-com.sublimetext.3 tsx editor
+# the median bundleid for all my applications is 21 chars
+# the longest extension currently in frequent use is 5 chars
+com.sublimetext.3     aux   editor
+com.sublimetext.3     bbl   editor
+com.sublimetext.3     bcf   editor
+com.sublimetext.3     blg   editor
+com.sublimetext.3     clj   editor
+com.sublimetext.3     cljc  editor
+com.sublimetext.3     cljs  editor
+com.sublimetext.3     cls   editor
+com.sublimetext.3     conf  editor
+com.sublimetext.3     dtd   editor
+com.sublimetext.3     edn   editor
+com.sublimetext.3     fls   editor
+com.sublimetext.3     java  editor
+com.sublimetext.3     json  editor
+com.sublimetext.3     rdf   editor
+com.sublimetext.3     swift editor
+com.sublimetext.3     tmp   editor
+com.sublimetext.3     tsx   editor
 
-org.videolan.vlc webm all
+org.videolan.vlc      webm  all
