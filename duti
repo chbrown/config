@@ -1,8 +1,9 @@
-# show the bundleid of an Application:
+# show the bundleid of the Application VLC.app:
 #   mdls -name kMDItemCFBundleIdentifier -r /Applications/VLC.app
-# TODO: show the current bundleid handler for a specific file:
-#   ?
-# activate by running:
+# show information about the current default application for files with the extension .ts
+# (`duti -x .ts` and `duti -x index.ts` return the same thing, but none of them read any such file):
+#   duti -x ts
+# install this configuration file by running:
 #   duti ~/config/duti
 
 com.sublimetext.3 aux editor
