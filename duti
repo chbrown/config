@@ -22,6 +22,7 @@ com.sublimetext.3     edn   editor
 com.sublimetext.3     fls   editor
 com.sublimetext.3     java  editor
 com.sublimetext.3     json  editor
+com.sublimetext.3     pom   editor
 com.sublimetext.3     rdf   editor
 com.sublimetext.3     swift editor
 com.sublimetext.3     tmp   editor
