@@ -25,8 +25,10 @@
 # the longest extension currently in frequent use is 5 chars
 com.sublimetext.3     aux   editor
 com.sublimetext.3     bbl   editor
+com.sublimetext.3     bbx   editor
 com.sublimetext.3     bcf   editor
 com.sublimetext.3     blg   editor
+com.sublimetext.3     cbx   editor
 com.sublimetext.3     clj   editor
 com.sublimetext.3     cljc  editor
 com.sublimetext.3     cljs  editor
