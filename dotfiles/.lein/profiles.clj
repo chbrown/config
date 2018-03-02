@@ -41,6 +41,8 @@
                            perr   [[:inner 0]]
                            ; manifold
                            #"^extend-" [[:block 1] [:inner 1]] ; same as extend-protocol
+                           ; spec
+                           fdef [[:inner 0]]
                            ; overrides
                            assoc [[:block 1]] ; doesn't work as intended, due to the doubling of key+val subforms
                            element  [[:inner 0]]
