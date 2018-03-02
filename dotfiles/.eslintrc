@@ -1,49 +1,42 @@
-{
-  "plugins": [
-    "react"
-  ],
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true
-    }
-  },
-  "globals": {
-    "chrome": false
-  },
-  "rules": {
-    "semi": ["warn", "never"],
-    "comma-dangle": ["warn", "always-multiline"],
-    "no-dupe-args": "error",
-    "no-dupe-keys": "error",
-    "no-duplicate-case": "error",
-    "no-empty": "warn",
-    "no-empty-character-class": "warn",
-    "no-ex-assign": "warn",
-    "no-extra-parens": "off",
-    "no-extra-semi": "warn",
-    "no-func-assign": "warn",
-    "no-invalid-regexp": "warn",
-    "no-irregular-whitespace": "warn",
-    "no-undef": "error",
-    "no-unreachable": "warn",
-    "no-unused-vars": "warn",
-    "valid-typeof": "warn",
-    "react/jsx-no-undef": "error",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "warn",
-    "react/no-did-mount-set-state": "warn",
-    "react/no-did-update-set-state": "error",
-    "react/no-direct-mutation-state": "error",
-    "react/no-unknown-property": "warn",
-    "react/prefer-es6-class": "warn",
-    "react/react-in-jsx-scope": "error"
-  }
-}
+---
+plugins:
+  - react
+env:
+  browser: true
+  node: true
+  es6: true
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
+    jsx: true
+globals:
+  chrome: false
+rules:
+  semi: [warn, never]
+  comma-dangle: [warn, always-multiline]
+  no-dupe-args: error
+  no-dupe-keys: error
+  no-duplicate-case: error
+  no-empty: warn
+  no-empty-character-class: warn
+  no-ex-assign: warn
+  no-extra-parens: off
+  no-extra-semi: warn
+  no-func-assign: warn
+  no-invalid-regexp: warn
+  no-irregular-whitespace: warn
+  no-undef: error
+  no-unreachable: warn
+  no-unused-vars: warn
+  valid-typeof: warn
+  react/jsx-no-undef: error
+  react/jsx-uses-react: error
+  react/jsx-uses-vars: warn
+  react/no-did-mount-set-state: warn
+  react/no-did-update-set-state: error
+  react/no-direct-mutation-state: error
+  react/no-unknown-property: warn
+  react/prefer-es6-class: warn
+  react/react-in-jsx-scope: error
