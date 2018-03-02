@@ -14,13 +14,12 @@ parserOptions:
 globals:
   chrome: false
 rules:
-  semi: [warn, never]
   comma-dangle: [warn, always-multiline]
   no-dupe-args: error
   no-dupe-keys: error
   no-duplicate-case: error
-  no-empty: warn
   no-empty-character-class: warn
+  no-empty: warn
   no-ex-assign: warn
   no-extra-parens: off
   no-extra-semi: warn
@@ -30,6 +29,7 @@ rules:
   no-undef: error
   no-unreachable: warn
   no-unused-vars: warn
+  semi: [warn, never]
   valid-typeof: warn
   # plugin:react
   react/boolean-prop-naming: warn
