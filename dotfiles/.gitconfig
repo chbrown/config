@@ -9,12 +9,13 @@
     interactive = auto
 
 [alias]
+    c = commit
     ci = commit
     di = diff
     df = diff --diff-algorithm=patience --word-diff=color --ignore-all-space
     dc = diff --cached
+    s = status
     st = status
-    co = checkout
     l = log --oneline --graph --all --decorate --simplify-by-decoration
     lall = log --oneline --graph --all --decorate
     # %h  => abbreviated commit hash
