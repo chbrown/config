@@ -1,5 +1,7 @@
-# show the bundleid of the Application VLC.app:
-#   mdls -name kMDItemCFBundleIdentifier -r /Applications/VLC.app
+# show the bundleid of the system-installed application `VLC.app`:
+#   mdls -name kMDItemCFBundleIdentifier -raw /Applications/VLC.app
+# show the UTI(s) of the file `main.tex`:
+#   mdls -name kMDItemContentTypeTree -raw main.tex
 # show information about the current default application for files with the extension .ts
 # (`duti -x .ts` and `duti -x index.ts` return the same thing, but none of them read any such file):
 #   duti -x ts
