@@ -14,23 +14,128 @@ parserOptions:
 globals:
   chrome: false
 rules:
-  comma-dangle: [warn, always-multiline]
+  array-callback-return: error
+  no-alert: warn
+  no-caller: warn
+  no-case-declarations: warn
+  no-compare-neg-zero: error
+  no-cond-assign: error
+  no-constant-condition: warn
+  no-control-regex: warn
+  no-debugger: warn
+  no-delete-var: warn
+  no-div-regex: warn
   no-dupe-args: error
   no-dupe-keys: error
   no-duplicate-case: error
   no-empty-character-class: warn
+  no-empty-function: warn
+  no-empty-pattern: warn
   no-empty: warn
-  no-ex-assign: warn
-  no-extra-parens: off
+  no-eq-null: warn
+  no-eval: warn
+  no-ex-assign: error
+  no-extend-native: warn
+  no-extra-bind: warn
+  no-extra-label: warn
   no-extra-semi: warn
-  no-func-assign: warn
-  no-invalid-regexp: warn
+  no-fallthrough: warn
+  no-floating-decimal: warn
+  no-func-assign: error
+  no-implied-eval: error
+  no-inner-declarations: warn
+  no-invalid-regexp: error
+  no-invalid-this: error
   no-irregular-whitespace: warn
+  no-iterator: error
+  no-label-var: warn
+  no-labels: warn
+  no-lone-blocks: error
+  no-loop-func: warn
+  no-multi-spaces: warn
+  no-multi-str: warn
+  no-new-func: error
+  no-new-wrappers: warn
+  no-new: error
+  no-octal-escape: warn
+  no-octal: warn
+  no-param-reassign: error
+  no-proto: error
+  no-prototype-builtins: error
+  no-redeclare: warn
+  no-return-assign: warn
+  no-return-await: warn
+  no-script-url: warn
+  no-self-assign: warn
+  no-self-compare: warn
+  no-sequences: warn
+  no-shadow-restricted-names: warn
+  no-template-curly-in-string: warn
+  no-throw-literal: warn
   no-undef: error
+  no-unexpected-multiline: warn
+  no-unmodified-loop-condition: warn
   no-unreachable: warn
+  no-unsafe-finally: error
+  no-unsafe-negation: error
+  no-unused-expressions: warn
+  no-unused-labels: error
   no-unused-vars: warn
-  semi: [warn, never]
-  valid-typeof: warn
+  no-use-before-define: warn
+  no-useless-call: warn
+  no-useless-return: warn
+  no-void: warn
+  no-with: warn
+  radix: warn
+  require-await: warn
+  use-isnan: error
+  valid-typeof: error
+  wrap-iife: warn
+  yoda: warn
+  # stylistic
+  array-bracket-newline: [warn, consistent]
+  array-bracket-spacing: warn
+  block-spacing: warn
+  brace-style: [warn, stroustrup]
+  comma-dangle: [warn, always-multiline]
+  comma-spacing: warn
+  comma-style: warn
+  computed-property-spacing: warn
+  eol-last: warn
+  func-call-spacing: warn
+  func-name-matching: warn
+  indent: [warn, 2, {MemberExpression: 0}] # Align chained method calls on same column as target
+  jsx-quotes: warn
+  key-spacing: [warn, {mode: minimum}]
+  keyword-spacing: warn
+  linebreak-style: warn
+  new-cap: [warn, {capIsNew: false}]
+  no-array-constructor: warn
+  no-mixed-spaces-and-tabs: error
+  no-multi-assign: warn
+  no-multiple-empty-lines: warn
+  no-new-object: warn
+  no-tabs: warn
+  no-trailing-spaces: warn
+  no-unneeded-ternary: warn
+  no-whitespace-before-property: warn
+  nonblock-statement-body-position: error
+  object-curly-newline: [warn, {consistent: true}]
+  object-curly-spacing: warn
+  object-property-newline: [warn, {allowAllPropertiesOnSameLine: true}]
+  padded-blocks: [warn, {switches: never, blocks: never}]
+  quote-props: [warn, consistent-as-needed]
+  quotes: [warn, single, {avoidEscape: true}]
+  semi-spacing: warn
+  semi-style: warn
+  #semi: [warn, never] # To override at the CLI: --rule 'semi: [warn, always]'
+  space-before-function-paren: [warn, never]
+  space-in-parens: warn
+  space-infix-ops: warn
+  space-unary-ops: warn
+  switch-colon-spacing: warn
+  template-tag-spacing: warn
+  unicode-bom: warn
   # plugin:react
   react/boolean-prop-naming: warn
   react/jsx-boolean-value: warn
