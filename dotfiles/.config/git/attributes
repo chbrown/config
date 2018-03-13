@@ -10,3 +10,6 @@
 *.py    diff=python
 *.rb    diff=ruby
 *.tex   diff=tex
+
+# activate custom drivers
+*.clj*  diff=clojure

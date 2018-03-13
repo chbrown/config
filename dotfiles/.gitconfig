@@ -45,3 +45,9 @@
 #[color "diff"]
 #    old = red strike
 #    new = green underline
+
+[diff "clojure"]
+    #            ⬐ collection delimiters
+    #            ↓           ⬐ keywords / symbols
+    #            ↓           ↓                           ⬐ everything else
+    wordRegex = "[#{}()[\\]]|[:']?[-a-zA-Z0-9*+!_'?.<>]+|[^[:space:]]"
