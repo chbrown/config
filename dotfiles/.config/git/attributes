@@ -1,0 +1,12 @@
+# activate subset of built-in drivers (see https://git.io/vxJWt)
+*.bib   diff=bibtex
+*.c     diff=cpp
+*.cpp   diff=cpp
+*.css   diff=css
+*.html  diff=html
+*.java  diff=java
+*.php   diff=php
+*.pl    diff=perl
+*.py    diff=python
+*.rb    diff=ruby
+*.tex   diff=tex
