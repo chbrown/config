@@ -29,7 +29,6 @@
 
 [core]
     pager = cat
-    excludesfile = ~/.gitignore_global
 
 [credential]
     helper = osxkeychain
