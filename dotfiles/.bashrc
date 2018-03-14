@@ -45,9 +45,6 @@ cdp() {
   mkdir -p $1
   cd $1
 }
-cdr() {
-  cd **/*$1*
-}
 source_if_exists() {
   [[ -e "$1" ]] && source "$1"
 }
