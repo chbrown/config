@@ -80,9 +80,6 @@ if [ $(uname) = Darwin ]; then
       open "${OPENFLAGS[@]}" "$@"
     fi
   }
-  mou() {
-    (OPENFLAGS=(-a Mou.app); o "$@")
-  }
 fi
 
 # -e is true for existing files
