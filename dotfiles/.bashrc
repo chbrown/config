@@ -30,7 +30,6 @@ alias ipy='ipython -i'
 
 alias lsa='ls -la'
 alias perlsed='perl -pe'
-alias psqlt="psql -P footer=off -A -F $'\t'"
 
 # tr -s indicates that multiple matches of the first string are converted into
 # a single instance of the second string
