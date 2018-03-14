@@ -63,21 +63,15 @@ sha1() {
   printf "%s" $1 | shasum -a 1 | awk '{print $1}'
 }
 
-# Mac OS X -only functions
-if [ $(uname) = Darwin ]; then
+# only define the function 'o' if the command 'open' exists
+if command -v open >/dev/null 2>&1; then
   o() {
-    # $* is the list of arguments.
-    # $@ is just like $*, but quoted.
-    # $# is the number of args in $*, which is the same as in $@
-    # in both cases of using $@ (an array) and $OPENFLAGS (also an array),
-    # by using the @ indexer, we get the elements back individually quoted
-    # if we wrap the whole ARR[@] in quotes
     if [ $# -eq 0 ]; then
-      # if there were no arguments specified, simply start editing in the current directory
-      echo Opening current directory: $(pwd)
-      open "${OPENFLAGS[@]}" .
+      # if there were no arguments specified, simply open the current directory
+      >&2 printf 'Opening current directory: %s\n' "$(pwd)"
+      open .
     else
-      open "${OPENFLAGS[@]}" "$@"
+      open "$@"
     fi
   }
 fi
