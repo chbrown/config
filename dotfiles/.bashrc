@@ -60,7 +60,12 @@ fullpath() {
   echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1")
 }
 sha1() {
-  printf "%s" $1 | shasum -a 1 | awk '{print $1}'
+  if [ $# -eq 1 ]; then
+    printf "%s" $1 | shasum -a 1 | awk '{print $1}'
+  else
+    >&2 printf '%s must be called with exactly one argument, not %d.\n' "$FUNCNAME" "$#"
+    return 1
+  fi
 }
 
 # only define the function 'o' if the command 'open' exists
