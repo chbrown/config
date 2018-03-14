@@ -37,24 +37,23 @@ alias flatten="tr -s [:space:] ' '"
 # tokenize removes all characters except alphanumerics (A-Za-z0-9) and
 # apostrophe (') and splits on whitespace into lines
 # the deletion must come first in case there are any tokens that are only punctuation
-alias tokenize="tr -C -s \"[:alnum:]'\" [:space:] | tr -s [:space:] '\n'"
+alias tokenize="tr -C -s \"[:alnum:]'\" [:space:] | tr -s [:space:] '\\n'"
 alias lower="tr [:upper:] [:lower:]"
 alias upper="tr [:lower:] [:upper:]"
 
 cdp() {
-  mkdir -p $1
-  cd $1
+  mkdir -p "$1" && cd "$1"
 }
 source_if_exists() {
   [[ -e "$1" ]] && source "$1"
 }
 fullpath() {
   # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
-  echo $(cd $(dirname "$1") && pwd -P)/$(basename "$1")
+  printf '%s\n' "$(cd "$(dirname "$1")" && pwd -P)/$(basename "$1")"
 }
 sha1() {
   if [ $# -eq 1 ]; then
-    printf "%s" $1 | shasum -a 1 | awk '{print $1}'
+    printf '%s' "$1" | shasum -a 1 | awk '{print $1}'
   else
     >&2 printf '%s must be called with exactly one argument, not %d.\n' "$FUNCNAME" "$#"
     return 1
@@ -100,12 +99,16 @@ source_if_exists "$HOME/.iterm2_shell_integration.bash"
 #bind 'set page-completions off'
 #bind 'set completion-query-items 500'
 
-export PS1="\[$(tput setaf 2)\][\u@$MACHINE \w]\$\[$(tput sgr0)\] "
+COLOR_GREEN=$(tput setaf 2)
+COLOR_MAGENTA=$(tput setaf 5)
+COLOR_RESET=$(tput sgr0)
+
+export PS1="\\[$COLOR_GREEN\\][\\u@$MACHINE \\w]\$\\[$COLOR_RESET\\] "
 shortPS() {
-  # only show basename of working directory, and show it in magenta, instead of blue
-  export PS1="\[$(tput setaf 2)\][\u@$MACHINE \[$(tput setaf 5)\]\W\[$(tput setaf 2)\]]\$\[\$(tput sgr0)\] "
+  # only show basename of working directory, and show it in magenta, instead of green
+  export PS1="\\[$COLOR_GREEN\\][\\u@$MACHINE \\[$COLOR_MAGENTA\\]\\W\\[$COLOR_GREEN\\]]\$\\[$COLOR_RESET\\] "
 }
 
-BASHRC_D=$(dirname $(readlink $BASH_SOURCE))/bashrc.d
+BASHRC_D=$(dirname "$(readlink "$BASH_SOURCE")")/bashrc.d
 #source $BASHRC_D/timer
 #source $BASHRC_D/lastwd
