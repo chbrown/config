@@ -49,9 +49,6 @@ cdp() {
 cdr() {
   cd **/*$1*
 }
-lsd() {
-  ls -la $@ | grep ^d
-}
 source_if_exists() {
   [[ -e "$1" ]] && source "$1"
 }
