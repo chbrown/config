@@ -5,12 +5,31 @@
 
 set -o noclobber
 
-# history control
+## History configuration ##
+# HISTFILE: path to the history file (defaults to ~/.bash_history)
+# HISTCONTROL: colon-separated list of keywords
+# - ignorespace: lines beginning with a space character are not saved
+# - ignoredups: lines matching the previous history entry are not saved
+# - ignoreboth: shorthand for ignorespace:ignoredups
+# - erasedups: erase all previous occurrences matching the current line
 export HISTCONTROL=ignorespace:ignoredups
+# HISTSIZE: limits how many history items to save to HISTFILE when the shell exits (default is 500)
+# When HISTSIZE < 0, there is no limit to the number of commands stored.
 export HISTSIZE=-1
+# HISTFILESIZE: causes HISTFILE to be truncated to at most HISTFILESIZE lines when the shell starts
 export HISTFILESIZE=
+# HISTTIMEFORMAT: if set, causes timestamps to be written to the history file
+# These timestamps consist of the shell comment character and the time in epoch
+# seconds, e.g., `#1521069947`, which applies to the command on the subsequent line.
+# The format value is only used except by the `history` command, which calls
+# strftime to format the timestamp, inserting it between the history line
+# number and the command itself.
+# If any timestamps are missing, `history` uses the login time of the current shell session.
 export HISTTIMEFORMAT='%Y-%m-%dT%H:%M:%S%z '
+# histappend (shell option): causes the shell to append new history items to HISTFILE,
+# instead of overwriting it
 shopt -s histappend
+
 shopt -s checkwinsize
 if [[ $($SHELL --version) =~ 'version 4' ]]; then
   shopt -s autocd
