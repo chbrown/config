@@ -1,1 +1,1 @@
-echo $PWD >| /tmp/pwd
+printf '%s\n' "$PWD" >| "${TMPDIR-/tmp/}pwd"

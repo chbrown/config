@@ -4,8 +4,8 @@
 #   -z is true for null strings
 if [ -n "$WD" ] && [ -d "$WD" ]; then
   cd $WD
-elif [ -f /tmp/pwd ]; then
-  WD=$(cat /tmp/pwd)
+elif [ -f "${TMPDIR-/tmp/}pwd" ]; then
+  WD=$(cat "${TMPDIR-/tmp/}pwd")
   if [ -n "$WD" ] && [ -d "$WD" ]; then
     cd $WD
   fi
