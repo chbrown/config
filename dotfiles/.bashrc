@@ -9,6 +9,7 @@ set -o noclobber
 export HISTCONTROL=ignorespace:ignoredups
 export HISTSIZE=-1
 export HISTFILESIZE=
+export HISTTIMEFORMAT='%Y-%m-%dT%H:%M:%S%z '
 shopt -s histappend
 shopt -s checkwinsize
 if [[ $($SHELL --version) =~ 'version 4' ]]; then
