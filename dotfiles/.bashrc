@@ -6,9 +6,9 @@
 set -o noclobber
 
 # history control
-export HISTCONTROL=ignoredups:ignorespace
-export HISTSIZE=10000000000
-export HISTFILESIZE=10000000000000
+export HISTCONTROL=ignorespace:ignoredups
+export HISTSIZE=-1
+export HISTFILESIZE=
 shopt -s histappend
 shopt -s checkwinsize
 if [[ $($SHELL --version) =~ 'version 4' ]]; then
