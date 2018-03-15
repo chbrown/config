@@ -1,0 +1,8 @@
+# Call with Swift project as working directory, like:
+#     swiftlint --config ~/.swiftlint.yml
+disabled_rules:
+  - trailing_comma
+  - todo
+line_length: 140
+identifier_name:
+  min_length: 2
