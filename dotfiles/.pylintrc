@@ -38,6 +38,9 @@ ignore-docstrings=yes
 ignore-imports=no
 min-similarity-lines=4
 
+[TYPECHECK]
+ignored-modules=distutils,distutils.util,six,six.moves,cytoolz
+
 [VARIABLES]
 allow-global-unused-variables=yes
 dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
