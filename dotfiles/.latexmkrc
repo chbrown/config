@@ -20,6 +20,12 @@ $preview_continuous_mode = 1;
 # meaning latexmk should fork the command, but that's the default anyway
 $pdf_previewer = 'open -a TeXShop.app %O %S';
 
+# independently from latexmk, you can configure TeXShop to steal focus when the PDF changes (the default?):
+#   defaults write TeXShop BringPdfFrontOnAutomaticUpdate -bool TRUE
+# or not (it will still update in real-time):
+#   defaults write TeXShop BringPdfFrontOnAutomaticUpdate -bool FALSE
+# (thanks to a comment on this TeX.SX answer: https://tex.stackexchange.com/a/43059)
+
 # delete .bbl file when cleaning
 $bibtex_use = 2;
 
