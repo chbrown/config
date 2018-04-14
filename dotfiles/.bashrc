@@ -61,6 +61,14 @@ alias tokenize="tr -C -s \"[:alnum:]'\" [:space:] | tr -s [:space:] '\\n'"
 alias lower="tr [:upper:] [:lower:]"
 alias upper="tr [:lower:] [:upper:]"
 
+# The following is a useful alias, according to `help fc`;
+# `r` (re-)runs the last command
+# `r vim` runs the last command that begins with 'vim'
+# `r echo=printf` runs the last command,
+#    replacing each instance of the substring "echo" with "printf"
+# `r .tmp= rm` runs the last command that starts with 'rm', deleting each substring ".tmp"
+alias r="fc -s --"
+
 cdp() {
   mkdir -p "$1" && cd "$1"
 }
