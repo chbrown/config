@@ -36,6 +36,9 @@
 [credential "https://github.com"]
     username = chbrown
 
+[init]
+    templateDir = ~/.config/git/templates
+
 [log]
     date = iso
 
