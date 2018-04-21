@@ -1,0 +1,15 @@
+# Mostly from the documentation at:
+#     info stow 'Types And Syntax Of Ignore Lists'
+
+.+,v
+
+# version control
+CVS
+\.cvsignore
+\.svn
+\.hg
+\.git
+\.gitignore
+
+# other nonessential files
+\.DS_Store

@@ -19,7 +19,7 @@ so you might also want to:
 
 Install the other macOS-only configuration files:
 
-    stow --ignore='DS_Store' -Svvt $HOME macOS
+    stow -Svvt $HOME macOS
 
 
 ## macOS system settings
