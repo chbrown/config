@@ -48,6 +48,9 @@ export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# disable "Update available x -> y" notifications from npm (npmjs.com)
+export NO_UPDATE_NOTIFIER=1
+
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
 alias now_d='date +%Y%m%d'
