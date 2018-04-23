@@ -51,6 +51,9 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # disable "Update available x -> y" notifications from npm (npmjs.com)
 export NO_UPDATE_NOTIFIER=1
 
+# never tab-complete these suffixes (= extensions)
+export FIGNORE=.aux:.bbl:.blg:.fls:.log:.toc:.fdb_latexmk
+
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
 alias now_d='date +%Y%m%d'
