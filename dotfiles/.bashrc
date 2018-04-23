@@ -41,6 +41,9 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 
+# the pip docs are a lie; to avoid depending on vague defaults:
+export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
+
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
 alias now_d='date +%Y%m%d'
