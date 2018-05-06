@@ -16,5 +16,8 @@ node_modules/
 *.pyc
 .ipynb_checkpoints/
 
+# clojure
+.cpcache/
+
 # other
 .terraform/
