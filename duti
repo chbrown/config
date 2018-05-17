@@ -58,4 +58,10 @@ com.sublimetext.3     ltx   editor
 com.sublimetext.3     sty   editor
 com.sublimetext.3     tex   editor
 
+com.sublimetext.3     com.netscape.javascript-source editor
+com.sublimetext.3     public.patch-file              editor
+com.sublimetext.3     public.json                    editor
+com.sublimetext.3     public.source-code             editor
+com.sublimetext.3     public.swift-source            editor
+
 org.videolan.vlc      webm  all
