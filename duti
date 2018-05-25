@@ -64,4 +64,9 @@ com.sublimetext.3     public.json                    editor
 com.sublimetext.3     public.source-code             editor
 com.sublimetext.3     public.swift-source            editor
 
-org.videolan.vlc      webm  all
+org.videolan.vlc      com.apple.m4a-audio        viewer
+org.videolan.vlc      public.audio               viewer
+org.videolan.vlc      public.audiovisual-content viewer
+org.videolan.vlc      public.movie               viewer
+org.videolan.vlc      public.mp3                 viewer
+org.videolan.vlc      public.mpeg-4-audio        viewer
