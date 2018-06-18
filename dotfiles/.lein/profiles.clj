@@ -2,6 +2,7 @@
  :user {:plugins [[lein-pprint "1.2.0"]
                   [lein-auto "0.1.3"]
                   [lein-cljfmt "0.5.7" :exclusions [org.clojure/clojure]]
+                  [lein-nsorg "0.1.4"]
                   [lein-ancient "0.6.15"]
                   [lein-project-deps "0.3.0"]
                   [lein-cloverage "1.0.10" :exclusions [org.clojure/clojure]]
