@@ -5,11 +5,11 @@
                   [lein-ancient "0.6.15"]
                   [lein-project-deps "0.3.0"]
                   [lein-cloverage "1.0.10" :exclusions [org.clojure/clojure]]
-                  [jonase/eastwood "0.2.5" :exclusions [org.clojure/clojure]]
+                  [jonase/eastwood "0.2.6" :exclusions [org.clojure/clojure]]
                   [lein-kibit "0.1.6" :exclusions [org.clojure/clojure
                                                    org.clojure/tools.namespace
                                                    org.clojure/tools.reader]]
-                  [lein-codox "0.10.3"]]
+                  [lein-codox "0.10.4"]]
         :cljfmt {:file-pattern #"\.clj[cs]?$"
                  ; Inner rules:
                  ; - Syntax: [:inner <n-spaces>] [:inner <n-spaces> <arg-index>]
