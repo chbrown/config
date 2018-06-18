@@ -63,6 +63,7 @@ alias ipy='ipython -i'
 
 alias lsa='ls -la'
 alias perlsed='perl -pe'
+alias chown-me='chown -R "$(id -un):$(id -gn)"'
 
 # tr -s indicates that multiple matches of the first string are converted into
 # a single instance of the second string
