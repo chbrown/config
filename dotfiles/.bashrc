@@ -101,6 +101,19 @@ sha1() {
     return 1
   fi
 }
+iperl() {
+  # Based on https://stackoverflow.com/a/22840242
+  printf 'Starting Interactive Perl\n'
+  # rlwrap options:
+  #   -A, --ansi-colour-aware  Support prompts with color
+  #   -p, --prompt-colour      Set prompt color
+  #   -S, --substitute-prompt  Use this prompt
+  # perl options:
+  #   -w  Turn on warnings
+  #   -n  Wrap whole program in while (<>) { ... } loop
+  #   -E  Like -e but with all optional features
+  rlwrap -A -pgreen -S"perl> " perl -wnE'say eval()//$@'
+}
 
 # only define the function 'o' if the command 'open' exists
 if command -v open >/dev/null 2>&1; then
