@@ -127,10 +127,10 @@ fi
 # We can't use aliases since we default to current directory when no arguments are supplied.
 if command -v subl >/dev/null 2>&1; then
   e() {
-    subl "${@-.}"
+    subl --new-window "${@-.}"
   }
   a() {
-    subl -a "${@-.}"
+    subl --add "${@-.}"
   }
 fi
 
