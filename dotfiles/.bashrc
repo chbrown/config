@@ -52,7 +52,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export NO_UPDATE_NOTIFIER=1
 
 # never tab-complete these suffixes (= extensions)
-export FIGNORE=.aux:.bbl:.blg:.fls:.log:.toc:.fdb_latexmk
+export FIGNORE=.aux:.bbl:.blg:.fls:.log:.toc:.fdb_latexmk:.egg-info
 
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
