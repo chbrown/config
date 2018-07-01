@@ -1,0 +1,86 @@
+# see /usr/local/texlive/*/texmf-dist/chktex/chktexrc for all defaults
+
+# call like `chktex -v2 -g -l ~/.chktexrc paper.tex` to get local config to overwrite global
+
+# if you get the message, "WARNING -- ChkTeX does not handle lines over 1021 bytes correctly",
+# you might find this regular expression handy: [^\n]{1021,}
+
+# supposedly this is the default and it's in the global chktexrc but doesn't work unless repeated here
+# QuoteStyle = Traditional #=> "An example," he said, "would be great."
+# QuoteStyle = Logical     #=> "An example", he said, "would be great".
+QuoteStyle = Logical
+
+TabSize = 2
+
+# -v2 means fancy error display
+# but for some reason we can't use it here; it has to go before the other command line options, i.e., -g
+# CmdLine
+# {
+#     -v
+# }
+
+# Allow only "-" and "---" separators inside words
+HyphDash
+{
+    1 3
+}
+
+# Allow only "--" separators between numbers (the global default)
+NumDash
+{
+    2
+}
+
+# Disallow all usage of " --- ", " -- ", or " - "
+WordDash
+{
+    0
+}
+
+# ignore "Command terminated with space" warnings for these commands:
+Silent
+{
+    \centering
+    \dash
+    \dots
+    \draw
+    \endinput
+    \footnotemark
+    \hfil
+    \hfill
+    \item
+    \ldots
+    \linebreak
+    \maketableofcontents
+    \maketitle
+    \medskip
+    \newline
+    \node
+    \noindent
+    \path
+    \printbibliography
+    \quad
+# math operators
+    \approx
+    \geq
+    \neg
+    \supset
+    \wedge
+# size commands
+    \tiny
+    \scriptsize
+    \footnotesize
+    \small
+    \normalsize
+    \large
+    \Large
+    \LARGE
+    \huge
+    \Huge
+# booktabs
+    \bottomrule
+    \midrule
+    \toprule
+# caption/subcaption/subfig packages
+    \ContinuedFloat
+}
