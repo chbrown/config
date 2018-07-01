@@ -15,6 +15,7 @@ node_modules/
 *.egg-info/
 *.pyc
 .ipynb_checkpoints/
+.pyre/
 
 # clojure
 .cpcache/
