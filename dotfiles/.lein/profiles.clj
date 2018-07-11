@@ -2,11 +2,11 @@
  :user {:plugins [[lein-pprint "1.2.0"]
                   [lein-auto "0.1.3"]
                   [lein-cljfmt "0.5.7" :exclusions [org.clojure/clojure]]
-                  [lein-nsorg "0.1.4"]
+                  [lein-nsorg "0.2.0"]
                   [lein-ancient "0.6.15"]
                   [lein-project-deps "0.3.0"]
-                  [lein-cloverage "1.0.10" :exclusions [org.clojure/clojure]]
-                  [jonase/eastwood "0.2.6" :exclusions [org.clojure/clojure]]
+                  [lein-cloverage "1.0.11" :exclusions [org.clojure/clojure]]
+                  [jonase/eastwood "0.2.8" :exclusions [org.clojure/clojure]]
                   [lein-kibit "0.1.6" :exclusions [org.clojure/clojure
                                                    org.clojure/tools.namespace
                                                    org.clojure/tools.reader]]
@@ -52,7 +52,7 @@
                            are ^:replace [[:block 0]]
                            doto ^:replace [[:block 0]]}}
         :dependencies [[org.clojure/tools.namespace "0.3.0-alpha4"]
-                       [org.clojure/tools.reader "1.2.2"]
+                       [org.clojure/tools.reader "1.3.0"]
                        [slamhound "1.5.5"]
                        ; https://github.com/pallet/alembic for live classloading:
                        ; e.g.: (require '[alembic.still :refer [distill]])
