@@ -126,6 +126,11 @@ if command -v open >/dev/null 2>&1; then
       open "$@"
     fi
   }
+  if [ -e /Applications/Base.app ]; then
+    base() {
+      open -a Base.app "$@"
+    }
+  fi
 fi
 
 # -e is true for existing files
