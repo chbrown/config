@@ -1,0 +1,5 @@
+{:paths ["src" "resources"] ; default is ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.9.0"}
+        org.clojure/tools.deps.alpha {:mvn/version "0.5.442"}}
+ ; use aliases like: `clojure -A:test ...`
+ :aliases {:test {:extra-paths ["test"]}}}
