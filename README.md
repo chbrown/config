@@ -22,6 +22,14 @@ Install the other macOS-only configuration files:
     stow -t $HOME -S macOS
 
 
+## Uninstall
+
+Unstow:
+
+    stow -t $HOME -D dotfiles
+    stow -t $HOME -D macOS
+
+
 ## macOS system settings
 
 `/etc/paths` should look something like this:
