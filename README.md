@@ -1,5 +1,9 @@
 # Version controlled configuration files
 
+First, prepare the home directory structure, so that non-config files don't creep in:
+
+    mkdir -p $HOME/.{ansible,clojure,config,cpan,ipython/profile_default,jupyter,lein,sbt/{0.13,1.0}/plugins}
+
 Install [`dotfiles/`](dotfiles/) with [GNU Stow](https://www.gnu.org/software/stow/):
 
     git clone https://github.com/chbrown/config
