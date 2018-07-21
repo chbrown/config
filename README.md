@@ -4,9 +4,9 @@ Install [`dotfiles/`](dotfiles/) with [GNU Stow](https://www.gnu.org/software/st
 
     git clone https://github.com/chbrown/config
     cd config
-    stow --ignore='DS_Store' -Svvt $HOME dotfiles
+    stow --ignore=DS_Store -t $HOME -S dotfiles
 
-N.b.: `stow`'s `--ignore` option implicitly adds an `$` to the end.
+N.b.: `stow`'s `--ignore=REGEX` option implicitly adds an `$` to the end.
 
 `.bashrc` sources `~/.localrc` if it exists.
 
@@ -19,7 +19,7 @@ so you might also want to:
 
 Install the other macOS-only configuration files:
 
-    stow -Svvt $HOME macOS
+    stow -t $HOME -S macOS
 
 
 ## macOS system settings
