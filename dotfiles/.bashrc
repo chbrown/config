@@ -54,7 +54,7 @@ alias brew-up='brew update && brew upgrade --cleanup --ignore-pinned && brew cas
 export NO_UPDATE_NOTIFIER=1
 
 # never tab-complete these suffixes (= extensions)
-export FIGNORE=.aux:.bbl:.blg:.fls:.log:.toc:.fdb_latexmk:.egg-info:.retry
+export FIGNORE=.aux:.bbl:.blg:.fls:.log:.toc:.lot:.lof:.fdb_latexmk:.egg-info:.retry
 
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
