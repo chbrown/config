@@ -36,6 +36,9 @@
 [credential "https://github.com"]
     username = chbrown
 
+[diff]
+    colorMoved = default
+
 [diff "clojure"]
     #            ⬐ collection delimiters
     #            ↓           ⬐ keywords / symbols
