@@ -25,7 +25,6 @@
     # %ci => commit date in ISO-8601
     # %cr => commit date in relative terms
     lo = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
-    gc-safe = gc --aggressive --no-prune
 
 [core]
     pager = cat
