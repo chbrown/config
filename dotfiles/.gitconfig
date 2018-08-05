@@ -1,13 +1,3 @@
-[user]
-    name = Christopher Brown
-    email = io@henrian.com
-
-[color]
-    diff        = auto
-    status      = auto
-    branch      = auto
-    interactive = auto
-
 [alias]
     ## commit
     c  = commit
@@ -31,6 +21,12 @@
     # %cr => commit date in relative terms
     lo   = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
 
+[color]
+    diff        = auto
+    status      = auto
+    branch      = auto
+    interactive = auto
+
 [core]
     pager = cat
 
@@ -39,6 +35,12 @@
 
 [credential "https://github.com"]
     username = chbrown
+
+[diff "clojure"]
+    #            ⬐ collection delimiters
+    #            ↓           ⬐ keywords / symbols
+    #            ↓           ↓                           ⬐ everything else
+    wordRegex = "[#{}()[\\]]|[:']?[-a-zA-Z0-9*+!_'?.<>]+|[^[:space:]]"
 
 [init]
     templateDir = ~/.config/git/templates
@@ -49,8 +51,6 @@
 [tag]
     sort = version:refname
 
-[diff "clojure"]
-    #            ⬐ collection delimiters
-    #            ↓           ⬐ keywords / symbols
-    #            ↓           ↓                           ⬐ everything else
-    wordRegex = "[#{}()[\\]]|[:']?[-a-zA-Z0-9*+!_'?.<>]+|[^[:space:]]"
+[user]
+    name = Christopher Brown
+    email = io@henrian.com
