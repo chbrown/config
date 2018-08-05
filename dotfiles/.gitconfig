@@ -9,14 +9,18 @@
     interactive = auto
 
 [alias]
-    c = commit
+    ## commit
+    c  = commit
     ci = commit
+    ## diff
     di = diff
     df = diff --diff-algorithm=patience --word-diff=color --ignore-all-space
     dc = diff --cached
-    s = status
+    ## status
+    s  = status
     st = status
-    l = log --oneline --graph --all --decorate --simplify-by-decoration
+    ## log
+    l    = log --oneline --graph --all --decorate --simplify-by-decoration
     lall = log --oneline --graph --all --decorate
     # %h  => abbreviated commit hash
     # %an => author name
@@ -24,7 +28,7 @@
     # %cd => commit date in --date=[...] format
     # %ci => commit date in ISO-8601
     # %cr => commit date in relative terms
-    lo = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
+    lo   = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
 
 [core]
     pager = cat
