@@ -14,8 +14,8 @@
     ci = commit
     ## diff
     di = diff --no-prefix
-    df = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space
     dc = diff --no-prefix --cached
+    df = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space
     ## status
     s  = status
     st = status
