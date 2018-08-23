@@ -40,10 +40,12 @@ WordDash
 # ignore "Command terminated with space" warnings for these commands:
 Silent
 {
+    \begingroup
     \centering
     \dash
     \dots
     \draw
+    \endgroup
     \endinput
     \footnotemark
     \hfil
@@ -51,6 +53,9 @@ Silent
     \item
     \ldots
     \linebreak
+    \makeappendix
+    \makeatletter
+    \makeatother
     \maketableofcontents
     \maketitle
     \medskip
@@ -58,6 +63,7 @@ Silent
     \node
     \noindent
     \path
+    \phantomsection
     \printbibliography
     \quad
 # math operators
