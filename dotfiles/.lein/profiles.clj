@@ -1,12 +1,12 @@
 {:auth {:repository-auth {#"clojars" {:username :gpg :password :gpg}}}
  :user {:plugins [[lein-pprint "1.2.0"]
                   [lein-auto "0.1.3"]
-                  [lein-cljfmt "0.5.7" :exclusions [org.clojure/clojure]]
+                  [lein-cljfmt "0.6.0" :exclusions [org.clojure/clojure]]
                   [lein-nsorg "0.2.0"]
                   [lein-ancient "0.6.15"]
                   [lein-project-deps "0.3.0"]
-                  [lein-cloverage "1.0.11" :exclusions [org.clojure/clojure]]
-                  [jonase/eastwood "0.2.8" :exclusions [org.clojure/clojure]]
+                  [lein-cloverage "1.0.13" :exclusions [org.clojure/clojure]]
+                  [jonase/eastwood "0.2.9" :exclusions [org.clojure/clojure]]
                   [lein-kibit "0.1.6" :exclusions [org.clojure/clojure
                                                    org.clojure/tools.namespace
                                                    org.clojure/tools.reader]]
