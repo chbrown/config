@@ -66,6 +66,7 @@ Silent
     \phantomsection
     \printbibliography
     \quad
+    \today
 # math operators
     \approx
     \geq
