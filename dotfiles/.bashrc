@@ -48,7 +48,7 @@ export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 # set up alias for regular homebrew (+ cask) maintenance
-alias brew-up='brew update && brew upgrade --cleanup --ignore-pinned && brew cask upgrade --greedy && brew cask cleanup'
+alias brew-up='brew update && brew upgrade --cleanup --ignore-pinned && brew cask upgrade --greedy && brew cleanup'
 
 # disable "Update available x -> y" notifications from npm (npmjs.com)
 export NO_UPDATE_NOTIFIER=1
