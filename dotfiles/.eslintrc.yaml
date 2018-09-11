@@ -9,7 +9,6 @@ parserOptions:
   ecmaVersion: 6
   sourceType: module
   ecmaFeatures:
-    experimentalObjectRestSpread: true
     jsx: true
 globals:
   chrome: false
