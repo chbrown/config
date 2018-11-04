@@ -34,6 +34,18 @@ Unstow:
     stow -t $HOME -D macOS
 
 
+## Install Alfred Preferences
+
+Create directories so that only files are linked:
+
+    ALFRED=~/Dropbox/Alfredv2/Alfred.alfredpreferences
+    (cd alfred && find . -type d) | (cd $ALFRED && xargs mkdir -p)
+
+Link all files:
+
+    stow -t $ALFRED -S alfred
+
+
 ## macOS system settings
 
 `/etc/paths` should look something like this:
