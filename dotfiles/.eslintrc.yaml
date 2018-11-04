@@ -9,7 +9,7 @@ env:
   node: true
   es6: true
 parserOptions:
-  ecmaVersion: 6
+  ecmaVersion: 2018
   sourceType: module
   ecmaFeatures:
     jsx: true
@@ -17,6 +17,7 @@ globals:
   chrome: false
 rules:
   array-callback-return: error
+  block-scoped-var: error
   no-alert: warn
   no-caller: warn
   no-case-declarations: warn
@@ -25,7 +26,7 @@ rules:
   no-constant-condition: warn
   no-control-regex: warn
   no-debugger: warn
-  no-delete-var: warn
+  no-delete-var: error
   no-div-regex: warn
   no-dupe-args: error
   no-dupe-keys: error
@@ -50,7 +51,7 @@ rules:
   no-invalid-this: error
   no-irregular-whitespace: warn
   no-iterator: error
-  no-label-var: warn
+  no-label-var: error
   no-labels: warn
   no-lone-blocks: error
   no-loop-func: warn
@@ -71,10 +72,13 @@ rules:
   no-self-assign: warn
   no-self-compare: warn
   no-sequences: warn
+  no-shadow: warn
   no-shadow-restricted-names: warn
   no-template-curly-in-string: warn
   no-throw-literal: warn
   no-undef: error
+  no-undef-init: warn
+  no-undefined: error
   no-unexpected-multiline: warn
   no-unmodified-loop-condition: warn
   no-unreachable: warn
@@ -125,6 +129,8 @@ rules:
   object-curly-newline: [warn, {consistent: true}]
   object-curly-spacing: warn
   object-property-newline: [warn, {allowAllPropertiesOnSameLine: true}]
+  one-var: [warn, never]
+  one-var-declaration-per-line: warn
   padded-blocks: [warn, {switches: never, blocks: never}]
   quote-props: [warn, consistent-as-needed]
   quotes: [warn, single, {avoidEscape: true}]
@@ -138,6 +144,24 @@ rules:
   switch-colon-spacing: warn
   template-tag-spacing: warn
   unicode-bom: warn
+  # es6
+  constructor-super: error
+  no-confusing-arrow: warn
+  no-const-assign: error
+  no-dupe-class-members: error
+  no-duplicate-imports: error
+  no-new-symbol: error
+  no-this-before-super: error
+  no-useless-computed-key: warn
+  no-useless-constructor: warn
+  no-useless-rename: warn
+  no-var: warn
+  prefer-arrow-callback: warn
+  prefer-const: warn
+  prefer-numeric-literals: warn
+  prefer-rest-params: warn
+  prefer-spread: warn
+  require-yield: error
   # plugin:react
   react/boolean-prop-naming: warn
   react/jsx-boolean-value: warn
