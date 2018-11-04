@@ -7,6 +7,7 @@
 .lock-wscript
 .svn
 .waf-pickle-*
+config.gypi
 CVS
 npm-debug.log
 node_modules/
@@ -14,6 +15,7 @@ node_modules/
 # python stuff
 *.egg-info/
 *.pyc
+.eggs/
 .ipynb_checkpoints/
 .pyre/
 
