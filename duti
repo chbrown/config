@@ -64,6 +64,7 @@ com.sublimetext.3     public.patch-file              editor
 com.sublimetext.3     public.json                    editor
 com.sublimetext.3     public.source-code             editor
 com.sublimetext.3     public.swift-source            editor
+com.sublimetext.3     public.python-script           editor
 
 org.videolan.vlc      com.apple.m4a-audio        viewer
 org.videolan.vlc      public.audio               viewer
