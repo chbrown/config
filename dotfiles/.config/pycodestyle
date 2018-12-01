@@ -3,4 +3,6 @@ max-line-length = 120
 # E128: continuation line under-indented for visual indent
 # E241: multiple spaces after ':'
 # E501: line too long
-ignore = E241
+# W503: line break before binary operator
+# W504: line break after binary operator
+ignore = E241,W504
