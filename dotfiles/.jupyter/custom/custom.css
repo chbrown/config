@@ -7,3 +7,5 @@ Otherwise, changes can be reloaded with just a browser refresh.
 .container {
   width: 99% !important;
 }
+
+/* it seems jupyter lab doesn't load this file :( */
