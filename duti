@@ -27,6 +27,7 @@
 # the longest extension currently in frequent use is 5 chars
 com.sublimetext.3     conf  editor
 com.sublimetext.3     json  editor
+com.sublimetext.3     md    editor
 com.sublimetext.3     ris   editor
 com.sublimetext.3     tmp   editor
 com.sublimetext.3     tsx   editor
