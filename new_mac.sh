@@ -30,7 +30,7 @@ echo '- Finder.app: showing full path, extensions, and reducing animations'
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE
 defaults write com.apple.finder AnimateInfoPanes -bool FALSE
 defaults write com.apple.finder AnimateWindowZoom -bool FALSE
-defaults write com.apple.finder AppleShowAllFiles FALSE
+defaults write com.apple.finder AppleShowAllFiles -bool FALSE
 defaults write com.apple.finder DisableAllAnimations -bool TRUE
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool FALSE
