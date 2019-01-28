@@ -31,10 +31,8 @@ export HISTTIMEFORMAT='%Y-%m-%dT%H:%M:%S%z '
 shopt -s histappend
 
 shopt -s checkwinsize
-if [[ $($SHELL --version) =~ 'version 4' ]]; then
-  shopt -s autocd
-  shopt -s globstar
-fi
+shopt -s autocd
+shopt -s globstar
 stty -ixon
 
 export CLICOLOR=1
