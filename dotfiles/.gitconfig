@@ -2,11 +2,15 @@
     ## commit
     c  = commit
     ci = commit
+    ca = commit --amend
     ## diff
     di  = diff --no-prefix
     dc  = diff --no-prefix --cached
     df  = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space
     dfc = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space --cached
+    ## rebase
+    r  = rebase
+    rc = rebase --continue
     ## status
     s  = status
     st = status
