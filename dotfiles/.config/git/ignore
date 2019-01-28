@@ -15,9 +15,11 @@ node_modules/
 # python stuff
 *.egg-info/
 *.pyc
+.coverage*
 .eggs/
 .ipynb_checkpoints/
 .pyre/
+htmlcov/
 
 # clojure
 .cpcache/
