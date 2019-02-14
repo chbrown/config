@@ -39,6 +39,9 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 
+# TIME_STYLE is only read by `gls` (GNU ls), not the default POSIX/BSD `ls`
+export TIME_STYLE='+%Y-%m-%d %H:%M:%S'
+
 # the pip docs are a lie; to avoid depending on vague defaults:
 export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
 
