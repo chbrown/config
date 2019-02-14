@@ -48,8 +48,14 @@ export PIP_CONFIG_FILE=$HOME/.config/pip/pip.conf
 # improve privacy and speed up first-time installs with Homebrew (brew.sh)
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1
-# set up alias for regular homebrew (+ cask) maintenance
-alias brew-up='brew update && brew upgrade --cleanup --ignore-pinned && brew cask upgrade --greedy && brew cleanup'
+# set up function for regular homebrew (+ cask) maintenance
+function brew-up() {
+  # Usage: brew-up [--greedy]
+  brew update
+  brew upgrade --ignore-pinned
+  brew cask upgrade "$@"
+  brew cleanup
+}
 
 # disable "Update available x -> y" notifications from npm (npmjs.com)
 export NO_UPDATE_NOTIFIER=1
