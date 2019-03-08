@@ -1,8 +1,9 @@
 [pycodestyle]
 max-line-length = 120
 # E128: continuation line under-indented for visual indent
+# E203: whitespace before ':'
 # E241: multiple spaces after ':'
 # E501: line too long
 # W503: line break before binary operator
 # W504: line break after binary operator
-ignore = E241,W504
+ignore = E203,E241,W504
