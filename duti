@@ -63,10 +63,13 @@ com.sublimetext.3     tex   editor
 
 com.sublimetext.3     com.netscape.javascript-source editor
 com.sublimetext.3     public.json                    editor
+com.sublimetext.3     public.log                     editor
 com.sublimetext.3     public.patch-file              editor
+com.sublimetext.3     public.plain-text              editor
 com.sublimetext.3     public.python-script           editor
 com.sublimetext.3     public.source-code             editor
 com.sublimetext.3     public.swift-source            editor
+com.sublimetext.3     public.text                    editor
 
 org.videolan.vlc      com.apple.m4a-audio        viewer
 org.videolan.vlc      public.audio               viewer
