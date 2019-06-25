@@ -6,4 +6,5 @@ max-line-length = 120
 # E501: line too long
 # W503: line break before binary operator
 # W504: line break after binary operator
-ignore = E203,E241,W504
+# black violates W503 (preferring to satisfy W504)
+ignore = E203,E241,W503
