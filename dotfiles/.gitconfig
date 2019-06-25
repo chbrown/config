@@ -20,12 +20,20 @@
     # --decorate => show ref names of listed commits
     l    = log --all --decorate --graph --oneline --simplify-by-decoration
     lall = log --all --decorate --graph --oneline
+    # tformat:* => just like format:*, but using terminator rather than separator semantics (--oneline behavior)
     # %h  => abbreviated commit hash
     # %an => author name
     # %ae => author email
     # %cd => commit date in --date=[...] format
     # %ci => commit date in ISO-8601
     # %cr => commit date in relative terms
+    # %d  => ref names (like --decorate)
+    # %C(...)
+    #   Basic accepted colors: normal, black, red, green, yellow, blue, magenta, cyan, white
+    #   The first color given is the foreground; the second is the background.
+    #   Accepted attributes: bold, dim, ul, blink, reverse, italic, strike
+    #   %C(auto) uses the built-in default color (for TTY) when interpreting %d and %h (among others?)
+    # References: https://git-scm.com/docs/pretty-formats, https://git.io/garybernhardt-dotfiles-githelpers
     lo   = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
 
 [color]
