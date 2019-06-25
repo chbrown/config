@@ -6,10 +6,5 @@
   },
   "Notebook": {
     "Header": false
-  },
-  "CodeCell": {
-    "cm_config": {
-      "autoCloseBrackets": false
-    }
   }
 }
