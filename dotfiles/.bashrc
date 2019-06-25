@@ -182,3 +182,24 @@ BASHRC_D=$(dirname "$(readlink "$BASH_SOURCE")")/bashrc.d
 
 [[ -e ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 [[ -d ~/.iterm2 ]] && export PATH=~/.iterm2:$PATH
+
+# Initialize fasd (https://github.com/clvv/fasd) if available
+if command -v fasd >/dev/null 2>&1; then
+  # The fasd README says to install into the shell with `eval $(fasd --init auto)`
+  # For bash, that evaluates to: `eval "$(fasd --init posix-alias bash-hook bash-ccomp bash-ccomp-install)"`
+  # posix-alias = define aliases for: a, s, sd, sf, d, f, z, zz
+  #               also defines fasd_cd, a function called by z and zz
+  # bash-hook = define function _fasd_prompt_func and add it to PROMPT_COMMAND
+  #             (if it is not already there)
+  # bash-ccomp = define functions _fasd_bash_cmd_complete and _fasd_bash_hook_cmd_complete
+  # bash-ccomp-install = call _fasd_bash_hook_cmd_complete with args: fasd a s d f sd sf z zz
+  # Use the definition of fasd_cd() from `fasd --init posix-alias`, but not the aliases
+  eval "$(fasd --init posix-alias | grep -v alias)"
+  alias j='fasd_cd -d' # same as default 'z' alias expansion
+  # Use default implementations for command completions and hook
+  eval "$(fasd --init bash-ccomp bash-hook)"
+  # This is the same as `fasd --init bash-ccomp-install` but only for "j"
+  _fasd_bash_hook_cmd_complete fasd j
+  # Integrate with bash-preexec.sh from ~/.iterm2_shell_integration.bash
+  preexec_functions+=(_fasd_prompt_func)
+fi
