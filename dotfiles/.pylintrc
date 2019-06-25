@@ -55,6 +55,7 @@ allow-wildcard-with-all=no
 
 [DESIGN]
 max-args=10
+max-locals=20
 
 [EXCEPTIONS]
 overgeneral-exceptions=
