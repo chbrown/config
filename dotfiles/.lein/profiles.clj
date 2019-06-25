@@ -1,15 +1,15 @@
 {:auth {:repository-auth {#"clojars" {:username :gpg :password :gpg}}}
  :user {:plugins [[lein-pprint "1.2.0"]
                   [lein-auto "0.1.3"]
-                  [lein-cljfmt "0.6.0" :exclusions [org.clojure/clojure]]
-                  [lein-nsorg "0.2.0"]
+                  [lein-cljfmt "0.6.4" :exclusions [org.clojure/clojure]]
+                  [lein-nsorg "0.3.0"]
                   [lein-ancient "0.6.15"]
-                  [lein-cloverage "1.0.13" :exclusions [org.clojure/clojure]]
-                  [jonase/eastwood "0.2.9" :exclusions [org.clojure/clojure]]
+                  [lein-cloverage "1.1.1" :exclusions [org.clojure/clojure]]
+                  [jonase/eastwood "0.3.5" :exclusions [org.clojure/clojure]]
                   [lein-kibit "0.1.6" :exclusions [org.clojure/clojure
                                                    org.clojure/tools.namespace
                                                    org.clojure/tools.reader]]
-                  [lein-codox "0.10.4"]]
+                  [lein-codox "0.10.7"]]
         :cljfmt {:file-pattern #"\.clj[cs]?$"
                  ; Inner rules:
                  ; - Syntax: [:inner <n-spaces>] [:inner <n-spaces> <arg-index>]
@@ -50,8 +50,8 @@
                            thrown-with-msg? [[:inner 0]]
                            are ^:replace [[:block 0]]
                            doto ^:replace [[:block 0]]}}
-        :dependencies [[org.clojure/tools.namespace "0.3.0-alpha4"]
-                       [org.clojure/tools.reader "1.3.0"]
+        :dependencies [[org.clojure/tools.namespace "0.3.0"]
+                       [org.clojure/tools.reader "1.3.2"]
                        [slamhound "1.5.5"]
                        ; https://github.com/pallet/alembic for live classloading:
                        ; e.g.: (require '[alembic.still :refer [distill]])
