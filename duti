@@ -46,6 +46,9 @@ com.sublimetext.3     scala editor
 com.sublimetext.3     dtd   editor
 com.sublimetext.3     odm   editor
 com.sublimetext.3     rdf   editor
+com.sublimetext.3     xml   editor
+com.sublimetext.3     xsl   editor
+com.sublimetext.3     xslt  editor
 
 # TeX
 com.sublimetext.3     aux   editor
