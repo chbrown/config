@@ -97,9 +97,6 @@ alias r="fc -s --"
 cdp() {
   mkdir -p "$1" && cd "$1"
 }
-source_if_exists() {
-  [[ -e "$1" ]] && source "$1"
-}
 fullpath() {
   # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
   printf '%s\n' "$(cd "$(dirname "$1")" && pwd -P)/$(basename "$1")"
@@ -164,8 +161,8 @@ if command -v subl >/dev/null 2>&1; then
   }
 fi
 
-source_if_exists "$HOME/.localrc"
-source_if_exists "$HOME/.iterm2_shell_integration.bash"
+[[ -e ~/.localrc ]] && source ~/.localrc
+[[ -e ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 
 #bind 'set page-completions off'
 #bind 'set completion-query-items 500'
