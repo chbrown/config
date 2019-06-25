@@ -1,6 +1,3 @@
 {
-  "keyMap": "sublime",
-  "extraKeys": {
-    "Cmd-F": false
-  }
+  "keyMap": "sublime"
 }
