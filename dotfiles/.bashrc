@@ -181,3 +181,4 @@ BASHRC_D=$(dirname "$(readlink "$BASH_SOURCE")")/bashrc.d
 #source $BASHRC_D/lastwd
 
 [[ -e ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
+[[ -d ~/.iterm2 ]] && export PATH=~/.iterm2:$PATH
