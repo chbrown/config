@@ -15,8 +15,11 @@
     s  = status
     st = status
     ## log
-    l    = log --oneline --graph --all --decorate --simplify-by-decoration
-    lall = log --oneline --graph --all --decorate
+    # --all => show all refs/* (including HEAD), not just the specified commit
+    # --graph => draw a text-based graphical representation of the commit history
+    # --decorate => show ref names of listed commits
+    l    = log --all --decorate --graph --oneline --simplify-by-decoration
+    lall = log --all --decorate --graph --oneline
     # %h  => abbreviated commit hash
     # %an => author name
     # %ae => author email
