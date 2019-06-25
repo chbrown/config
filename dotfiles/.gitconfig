@@ -37,6 +37,8 @@
     # N.b.: realignment (to accommodate graph) using tabs is fragile (TODO: maybe use %<|(...) alignment?)
     lal  = log --all --graph --pretty=tformat:'%C(auto)%h%C(reset)%x09%C(magenta)%>(12)%ar %C(bold blue)%>(17)%ae%C(auto): %s%d%C(reset)'
     lo   = log --date=format-local:'%Y-%m-%d %H:%M' --pretty=tformat:'%C(yellow)%h%C(reset) %C(magenta)%cd%C(reset) %C(bold blue)%an%C(reset): %s'
+    ## ls-files
+    ls = ls-files
 
 [color]
     diff        = auto
