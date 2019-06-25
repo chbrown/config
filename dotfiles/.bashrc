@@ -35,6 +35,7 @@ shopt -s histappend
 shopt -s checkwinsize
 shopt -s autocd
 shopt -s globstar
+shopt -s no_empty_cmd_completion
 stty -ixon
 
 export CLICOLOR=1
