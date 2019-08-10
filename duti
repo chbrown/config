@@ -70,6 +70,7 @@ com.sublimetext.3     public.log                     editor
 com.sublimetext.3     public.patch-file              editor
 com.sublimetext.3     public.plain-text              editor
 com.sublimetext.3     public.python-script           editor
+com.sublimetext.3     public.shell-script            editor
 com.sublimetext.3     public.source-code             editor
 com.sublimetext.3     public.swift-source            editor
 com.sublimetext.3     public.text                    editor
