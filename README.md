@@ -2,7 +2,10 @@
 
 First, prepare the home directory structure, so that non-config files don't creep in:
 
-    mkdir -p $HOME/.{ansible,clojure,config,cpan,ipython/profile_default/startup,jupyter/lab/user-settings,lein,sbt/{0.13,1.0}/plugins}
+    mkdir -p ~/.{ansible,clojure,config,cpan,lein} \
+             ~/.sbt/{0.13,1.0}/plugins \
+             ~/ipython/profile_default/startup \
+             ~/jupyter/lab/user-settings/@jupyterlab/{apputils,codemirror,docmanager,notebook,shortcuts,statusbar}-extension
 
 Install [`dotfiles/`](dotfiles/) with [GNU Stow](https://www.gnu.org/software/stow/):
 
