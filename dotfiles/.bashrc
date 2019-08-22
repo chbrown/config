@@ -162,8 +162,6 @@ if command -v subl >/dev/null 2>&1; then
   }
 fi
 
-[[ -e ~/.localrc ]] && source ~/.localrc
-
 #bind 'set page-completions off'
 #bind 'set completion-query-items 500'
 
@@ -181,6 +179,7 @@ BASHRC_D=$(dirname "$(readlink "$BASH_SOURCE")")/bashrc.d
 #source $BASHRC_D/timer
 #source $BASHRC_D/lastwd
 
+[[ -e ~/.localrc ]] && source ~/.localrc
 [[ -e ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 [[ -d ~/.iterm2 ]] && export PATH=~/.iterm2:$PATH
 
