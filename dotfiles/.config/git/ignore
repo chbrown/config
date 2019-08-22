@@ -21,6 +21,7 @@ node_modules/
 .mypy_cache/
 .pyre/
 htmlcov/
+pip-wheel-metadata/
 
 # clojure
 .cpcache/
