@@ -169,10 +169,10 @@ COLOR_GREEN=$(tput setaf 2)
 COLOR_MAGENTA=$(tput setaf 5)
 COLOR_RESET=$(tput sgr0)
 
-export PS1="\\[$COLOR_GREEN\\][\\u@$MACHINE \\w]\$\\[$COLOR_RESET\\] "
+export PS1="\\[$COLOR_GREEN\\][\\u@\\h \\w]\$\\[$COLOR_RESET\\] "
 shortPS() {
   # only show basename of working directory, and show it in magenta, instead of green
-  export PS1="\\[$COLOR_GREEN\\][\\u@$MACHINE \\[$COLOR_MAGENTA\\]\\W\\[$COLOR_GREEN\\]]\$\\[$COLOR_RESET\\] "
+  export PS1="\\[$COLOR_GREEN\\][\\u@\\h \\[$COLOR_MAGENTA\\]\\W\\[$COLOR_GREEN\\]]\$\\[$COLOR_RESET\\] "
 }
 
 BASHRC_D=$(dirname "$(readlink "$BASH_SOURCE")")/bashrc.d
