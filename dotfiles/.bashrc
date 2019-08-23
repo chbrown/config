@@ -165,21 +165,22 @@ fi
 #bind 'set page-completions off'
 #bind 'set completion-query-items 500'
 
-export PS1='\e[32m[\u@\h \w]$\e[0m '
-#           ↑     ↑↑ ↑↑  ↑ ↑↑↑    ↑
-#           |     || ||  | |||    10 literal space
-#           |     || ||  | ||9 ansi reset
-#           |     || ||  | |8 literal dollar sign
-#           |     || ||  | 7 literal close bracket
-#           |     || ||  6 working directory
-#           |     || |5 hostname up to the first "."
-#           |     || 4 literal at-sign
-#           |     |3 username
-#           |     2 literal open bracket
-#           1 ansi foreground green
+# n.b. the \[...\] escapes are important for proper handling of history search (Ctrl R), etc.
+export PS1='\[\e[32m\][\u@\h \w]$\[\e[0m\] '
+#             ↑       ↑↑ ↑↑  ↑ ↑↑  ↑      ↑
+#             |       || ||  | ||  |      10 literal space
+#             |       || ||  | ||  9 ansi reset
+#             |       || ||  | |8 literal dollar sign
+#             |       || ||  | 7 literal close bracket
+#             |       || ||  6 working directory
+#             |       || |5 hostname up to the first "."
+#             |       || 4 literal at-sign
+#             |       |3 username
+#             |       2 literal open bracket
+#             1 ansi foreground green
 shortPS() {
   # only show basename of working directory, and show it in magenta, instead of green
-  export PS1='\e[32m[\u@\h \e[35m\W\e[32m]$\e[0m '
+  export PS1='\[\e[32m\][\u@\h \[\e[35m\]\W\[\e[32m\]]$\[\e[0m\] '
 }
 
 BASHRC_D=$(dirname "$(readlink "$BASH_SOURCE")")/bashrc.d
