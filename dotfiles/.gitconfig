@@ -11,6 +11,9 @@
     ## rebase
     r  = rebase
     rc = rebase --continue
+    ## show
+    sh = show
+    shf = show --diff-algorithm=patience --word-diff=color --ignore-all-space
     ## status
     s  = status
     st = status
