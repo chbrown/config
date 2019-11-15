@@ -1,0 +1,11 @@
+{
+  "editorConfig": {
+    "autoClosingBrackets": false,
+    "lineNumbers": true,
+    "lineWrap": "on",
+    "matchBrackets": true,
+    "insertSpaces": true,
+    "tabSize": 4,
+    "rulers": [88]
+  }
+}
