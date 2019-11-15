@@ -1,0 +1,38 @@
+{
+  "shortcuts": [
+    {
+      "command": "runmenu:restart-and-run-all",
+      "keys": ["Shift A", "Shift Z"],
+      "selector": ".jp-Notebook:focus",
+      "#!note": "derived from https://towardsdatascience.com/how-to-customize-jupyterlab-keyboard-shortcuts-72321f73753d"
+    },
+    {
+      "command": "editmenu:clear-current",
+      "keys": ["Accel K"],
+      "selector": ".jp-Notebook:focus"
+    },
+    {
+      "command": "documentsearch:start",
+      "keys": ["Accel F"],
+      "selector": ".jp-mod-searchable",
+      "disabled": true,
+      "#!note": "https://github.com/jupyterlab/jupyterlab/issues/6756#issuecomment-510614803"
+    },
+    {
+      "command": "documentsearch:highlightNext",
+      "keys": ["Accel G"],
+      "selector": ".jp-mod-searchable",
+      "disabled": true
+    },
+    {
+      "command": "console:linebreak",
+      "keys": ["Ctrl Enter"],
+      "selector": ".jp-CodeConsole-promptCell"
+    },
+    {
+      "command": "console:run-unforced",
+      "keys": ["Enter"],
+      "selector": ".jp-CodeConsole-promptCell"
+    }
+  ]
+}
