@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>local.jupyterlab</string>
+    <key>ProgramArguments</key>
+    <array>
+      <!-- basically: jupyter lab ~/notebooks -->
+      <string>/usr/local/opt/python/libexec/bin/python</string>
+      <string>-m</string>
+      <string>jupyterlab</string>
+      <string>/Users/chbrown/notebooks</string>
+    </array>
+    <!--
+      stop:  launchctl stop local.jupyterlab
+      start: launchctl start local.jupyterlab
+    -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <dict>
+      <key>SuccessfulExit</key>
+      <false/>
+    </dict>
+    <key>WorkingDirectory</key>
+    <string>/Users/chbrown/notebooks</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <!-- default: /usr/bin:/bin:/usr/sbin:/sbin -->
+        <string>/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/usr/local/var/log/jupyterlab.log</string>
+    <key>StandardErrorPath</key>
+    <string>/usr/local/var/log/jupyterlab.log</string>
+  </dict>
+</plist>
