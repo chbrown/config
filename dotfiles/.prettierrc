@@ -1,0 +1,6 @@
+printWidth: 88  # default: 80
+semi: false  # default: true
+singleQuote: true  # default: false
+trailingComma: all  # default: "none"
+bracketSpacing: false  # default: true
+jsxBracketSameLine: true  # default: false
