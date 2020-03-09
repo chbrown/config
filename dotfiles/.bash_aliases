@@ -28,3 +28,7 @@ alias upper="tr [:lower:] [:upper:]"
 #    replacing each instance of the substring "echo" with "printf"
 # `r .tmp= rm` runs the last command that starts with 'rm', deleting each substring ".tmp"
 alias r="fc -s --"
+
+alias ffmpeg="ffmpeg -hide_banner"
+alias ffprobe="ffprobe -hide_banner"
+alias ffplay="ffplay -hide_banner"
