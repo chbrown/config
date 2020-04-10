@@ -74,6 +74,7 @@ com.sublimetext.3     public.shell-script            editor
 com.sublimetext.3     public.source-code             editor
 com.sublimetext.3     public.swift-source            editor
 com.sublimetext.3     public.text                    editor
+com.sublimetext.3     public.yaml                    editor
 
 org.videolan.vlc      com.apple.m4a-audio        viewer
 org.videolan.vlc      public.audio               viewer
