@@ -27,9 +27,9 @@
     <string>/Users/chbrown/notebooks</string>
     <key>EnvironmentVariables</key>
     <dict>
-        <key>PATH</key>
-        <!-- default: /usr/bin:/bin:/usr/sbin:/sbin -->
-        <string>/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+      <key>PATH</key>
+      <!-- default: /usr/bin:/bin:/usr/sbin:/sbin -->
+      <string>/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
     </dict>
     <key>StandardOutPath</key>
     <string>/usr/local/var/log/jupyterlab.log</string>
