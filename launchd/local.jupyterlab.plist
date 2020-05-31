@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
       <!-- basically: jupyter lab ~/notebooks -->
-      <string>/usr/local/opt/python/libexec/bin/python</string>
+      <string>/usr/local/bin/python</string>
       <string>-m</string>
       <string>jupyterlab</string>
       <string>/Users/chbrown/notebooks</string>
@@ -29,7 +29,7 @@
     <dict>
       <key>PATH</key>
       <!-- default: /usr/bin:/bin:/usr/sbin:/sbin -->
-      <string>/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+      <string>/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
     </dict>
     <key>StandardOutPath</key>
     <string>/usr/local/var/log/jupyterlab.log</string>
