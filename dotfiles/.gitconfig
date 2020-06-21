@@ -7,7 +7,7 @@
     di  = diff --no-prefix
     dc  = diff --no-prefix --cached
     df  = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space
-    dfc = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space --cached
+    dcf = diff --no-prefix --cached --diff-algorithm=patience --word-diff=color --ignore-all-space
     ## rebase
     r  = rebase
     rc = rebase --continue
