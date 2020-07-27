@@ -71,7 +71,7 @@
     templateDir = ~/.config/git/templates
 
 [log]
-    date = iso
+    date = iso-strict
 
 [pull]
     ff = only
