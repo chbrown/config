@@ -73,6 +73,9 @@
 [log]
     date = iso
 
+[pull]
+    ff = only
+
 [tag]
     sort = version:refname
 
