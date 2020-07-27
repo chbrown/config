@@ -29,3 +29,6 @@ pip-wheel-metadata/
 # other
 .terraform/
 terraform.tfstate.backup
+
+# excel temporary files
+~$*.xl*
