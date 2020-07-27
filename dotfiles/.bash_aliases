@@ -20,6 +20,8 @@ alias flatten="tr -s [:space:] ' '"
 alias tokenize="tr -C -s \"[:alnum:]'\" [:space:] | tr -s [:space:] '\\n'"
 alias lower="tr [:upper:] [:lower:]"
 alias upper="tr [:lower:] [:upper:]"
+# trim deletes leading/trailing whitespace from each line
+alias trim="sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'"
 
 # The following is a useful alias, according to `help fc`;
 # `r` (re-)runs the last command
