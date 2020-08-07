@@ -64,7 +64,7 @@ function brew-up() {
 export NO_UPDATE_NOTIFIER=1
 
 # never tab-complete these suffixes (= extensions)
-export FIGNORE=.aux:.bbl:.blg:.fls:.log:.toc:.lot:.lof:.fdb_latexmk:.egg-info:.retry:__pycache__
+export FIGNORE=.aux:.bbl:.blg:.fls:.toc:.lot:.lof:.fdb_latexmk:.egg-info:.retry:__pycache__
 
 [[ -e ~/.bash_aliases ]] && source ~/.bash_aliases
 
