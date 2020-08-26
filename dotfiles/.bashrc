@@ -3,8 +3,6 @@
 # If not running interactively, don't do anything
 [[ -z "$PS1" ]] && return
 
-[[ -d ~/bin ]] && export PATH=~/bin:$PATH
-
 set -o noclobber
 
 ## History configuration ##

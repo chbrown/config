@@ -19,11 +19,6 @@ N.b.: `stow`'s `--ignore=REGEX` option implicitly adds an `$` to the end.
 
     echo 'export MACHINE=local' > ~/.localrc
 
-`.bashrc` also prepends `~/bin` to your `PATH` environment variable,
-so you might also want to:
-
-    git clone https://github.com/chbrown/scripts ~/bin
-
 Install the other macOS-only configuration files:
 
     stow -t $HOME -S macOS
