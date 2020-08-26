@@ -1,7 +1,7 @@
 # Call `pylint --generate-rcfile` to print out all options with defaults and comments
 
 [MASTER]
-extension-pkg-whitelist=spacy.attrs,spacy.lexeme,spacy.symbols
+extension-pkg-whitelist=spacy.attrs,spacy.lexeme,spacy.symbols,Levenshtein
 ignore=CVS,.git
 load-plugins=
 persistent=no
