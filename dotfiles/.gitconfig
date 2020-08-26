@@ -8,6 +8,8 @@
     dc  = diff --no-prefix --cached
     df  = diff --no-prefix --diff-algorithm=patience --word-diff=color --ignore-all-space
     dcf = diff --no-prefix --cached --diff-algorithm=patience --word-diff=color --ignore-all-space
+    ## gc
+    gca = gc --aggressive
     ## rebase
     r  = rebase
     rc = rebase --continue
