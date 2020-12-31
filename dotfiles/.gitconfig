@@ -71,6 +71,7 @@
 
 [init]
     templateDir = ~/.config/git/templates
+    defaultBranch = main
 
 [log]
     date = iso-strict
