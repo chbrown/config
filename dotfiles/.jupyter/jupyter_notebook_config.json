@@ -1,7 +1,6 @@
 {
   "NotebookApp": {
     "allow_password_change": false,
-    "open_browser": false,
     "password": "sha1:35393ddf7387:0dcbe5632bce1d7f0823ced58e68edff695510c7"
   }
 }
