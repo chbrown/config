@@ -68,31 +68,6 @@ export FIGNORE=.aux:.bbl:.blg:.fls:.toc:.lot:.lof:.fdb_latexmk:.egg-info:.retry:
 cdp() {
   mkdir -p "$1" && cd "$1"
 }
-fullpath() {
-  # http://stackoverflow.com/questions/5265702/how-to-get-full-path-of-a-file
-  printf '%s\n' "$(cd "$(dirname "$1")" && pwd -P)/$(basename "$1")"
-}
-sha1() {
-  if [ $# -eq 1 ]; then
-    printf '%s' "$1" | shasum -a 1 | awk '{print $1}'
-  else
-    >&2 printf '%s must be called with exactly one argument, not %d.\n' "$FUNCNAME" "$#"
-    return 1
-  fi
-}
-iperl() {
-  # Based on https://stackoverflow.com/a/22840242
-  printf 'Starting Interactive Perl\n'
-  # rlwrap options:
-  #   -A, --ansi-colour-aware  Support prompts with color
-  #   -p, --prompt-colour      Set prompt color
-  #   -S, --substitute-prompt  Use this prompt
-  # perl options:
-  #   -w  Turn on warnings
-  #   -n  Wrap whole program in while (<>) { ... } loop
-  #   -E  Like -e but with all optional features
-  rlwrap -A -pgreen -S"perl> " perl -wnE'say eval()//$@'
-}
 
 # only define the function 'o' if the command 'open' exists
 if command -v open >/dev/null 2>&1; then
@@ -105,11 +80,6 @@ if command -v open >/dev/null 2>&1; then
       open "$@"
     fi
   }
-  if [ -e /Applications/Base.app ]; then
-    base() {
-      open -a Base.app "$@"
-    }
-  fi
 fi
 
 # -e is true for existing files
