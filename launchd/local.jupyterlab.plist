@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
       <!-- basically: jupyter lab ~/notebooks -->
-      <string>/usr/local/bin/python</string>
+      <string>/usr/local/bin/python3</string>
       <string>-m</string>
       <string>jupyterlab</string>
       <string>/Users/chbrown/notebooks</string>
