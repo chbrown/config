@@ -2,8 +2,8 @@
 
 # alias awk='awk -F \\t'
 # alias count='sort | uniq -c | sort -g'
-alias now_d='date +%Y%m%d'
-alias now_dt='date +%Y%m%dT%H%M%S'
+alias now_d='date +%Y%m%d'  # same as `now -local -d | tr -d -`
+alias now_dt='date -u +%Y%m%dT%H%M%SZ'  # same as `now | tr -d :-`
 alias py='python'
 alias ipy='ipython -i'
 
