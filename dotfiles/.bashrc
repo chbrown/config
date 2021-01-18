@@ -53,8 +53,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 function brew-up() {
   # Usage: brew-up [--greedy]
   brew update
-  brew upgrade --ignore-pinned
-  brew cask upgrade "$@"
+  brew upgrade --ignore-pinned "$@"
   brew cleanup
 }
 
