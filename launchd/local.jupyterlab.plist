@@ -10,6 +10,7 @@
       <string>/usr/local/bin/python3</string>
       <string>-m</string>
       <string>jupyterlab</string>
+      <string>--no-browser</string>
       <string>/Users/chbrown/notebooks</string>
     </array>
     <!--
